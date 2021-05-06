@@ -1,0 +1,1 @@
+//  chicken name, sponsor (can be many), amount raised, goal (bawk coin?)

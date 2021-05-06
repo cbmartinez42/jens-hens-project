@@ -1,0 +1,1 @@
+//  type of egg (brown/white) default brown, inventory
