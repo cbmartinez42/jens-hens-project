@@ -40,6 +40,10 @@ Users.init(
                 key: 'id',
             }
         },
+        request_admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -65,7 +69,7 @@ Users.init(
     freezeTableName: true,
     timestamps: false,
     underscored: true,
-    modelName: "Users",
+    modelName: "users",
     }
 );
 
