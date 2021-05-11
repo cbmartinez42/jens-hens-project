@@ -1,8 +1,8 @@
-<<<<<<< Updated upstream
-=======
-const router = require('express').Router();
 
->>>>>>> Stashed changes
+const router = require('express').Router();
+const { Roles, User, Sponsor, Product, Order, Chicken } = require('../models');
+const withAuth = require('../utils/auth');
+
 router.get('/', async (req, res) => {
 //     try {
 //     const postsData = await Posts.findAll({
@@ -49,10 +49,7 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-<<<<<<< Updated upstream
-  
-=======
-  
+ 
 
   module.exports = router;
->>>>>>> Stashed changes
+
