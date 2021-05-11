@@ -10,6 +10,8 @@
 - [Questions](#questions)
 
 ## Description
+```As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
+=======
 Jen’s Hen’s
 ```
 As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
@@ -30,9 +32,10 @@ N2H: Log of transactions for on hand balance
 N2H: Repeat last order
 N2H: Pricing for product(s)
 N2H: $ Sponser a Chicken
+N2H: Chicken Match / Swipe right```
+=======
 N2H: Chicken Match / Swipe right
 ```
-
 ### Features
 * Utilizes Node.js with the Sequelize module to allow for functionality 
     * Sequelize uses model associations to manage relationships between models
