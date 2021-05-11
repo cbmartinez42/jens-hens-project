@@ -12,27 +12,35 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     variant: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'brown'
       },
-    inventory: {
+    // inventory: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   defaultValue: 0
+    // },
+    allocated_qty : {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
     },
-    allocated: {
+    allocated_to: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Users',
+        model: 'User',
         key: 'id',
       },
     },
+    order: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Product',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
