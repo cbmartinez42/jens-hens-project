@@ -11,6 +11,10 @@
 
 ## Description
 ```As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
+=======
+Jen’s Hen’s
+```
+As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
 As an admin I can see a list of orders sorted by fulfilled or not and then by order date.
 As an admin I can indicate that an order was fulfilled and the system will timestamp the order with the current time/date.
 As an admin I can allocate eggs to existing users or generic user. Will increment “allocated”.
@@ -29,7 +33,9 @@ N2H: Repeat last order
 N2H: Pricing for product(s)
 N2H: $ Sponser a Chicken
 N2H: Chicken Match / Swipe right```
-
+=======
+N2H: Chicken Match / Swipe right
+```
 ### Features
 * Utilizes Node.js with the Sequelize module to allow for functionality 
     * Sequelize uses model associations to manage relationships between models
@@ -68,3 +74,4 @@ Questions or issues should be raised either by emailing the developer at the lin
 ### To contact me:
 * Github: [cbmartinez42](https://github.com/cbmartinez42)  
 * Email: [cbmartinez42@gmail.com](mailto:cbmartinez42@gmail.com)
+
