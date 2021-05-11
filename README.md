@@ -10,7 +10,28 @@
 - [Questions](#questions)
 
 ## Description
-This is an original full-stack application for a tech blog/forum. This 
+Jen’s Hen’s
+```
+As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
+As an admin I can see a list of orders sorted by fulfilled or not and then by order date.
+As an admin I can indicate that an order was fulfilled and the system will timestamp the order with the current time/date.
+As an admin I can allocate eggs to existing users or generic user. Will increment “allocated”.
+As an admin if allocating to a generic user must ask for name.
+As an admin I can see a list of users and if they have requested admin access.
+As an admin I can approve a request from a user to be an admin and then the user record will be updated with the correct role.
+As a new user I can register as a user.
+As a user I can see a list of my orders and if they are fulfilled or not.
+As a user I can log in and see current product availability (total minus allocated) and request up to max_request.
+N2H: As as admin I am able tp add/maintain additional Products in a product file.
+N2H: Take payment from site such as PayPal or Square
+N2H: As an Admin can send an email or text to all or individual users with product availability.
+N2H: As an Admin can send individual email or text when new egg allocation is made
+N2H: Log of transactions for on hand balance
+N2H: Repeat last order
+N2H: Pricing for product(s)
+N2H: $ Sponser a Chicken
+N2H: Chicken Match / Swipe right
+```
 
 ### Features
 * Utilizes Node.js with the Sequelize module to allow for functionality 
@@ -50,3 +71,4 @@ Questions or issues should be raised either by emailing the developer at the lin
 ### To contact me:
 * Github: [cbmartinez42](https://github.com/cbmartinez42)  
 * Email: [cbmartinez42@gmail.com](mailto:cbmartinez42@gmail.com)
+
