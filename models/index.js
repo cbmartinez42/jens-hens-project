@@ -1,10 +1,12 @@
-const Comments = require('./Comments');
-const Posts = require('./Posts');
+const Chicken = require('./Chicken');
+const Order = require('./Order');
+const Product = require('./Product');
+const Sponsor = require('Sponsor')
 const User = require('./User');
 
 //  user has many posts & comments
-User.hasMany(Posts, {
-    foreignKey: 'created_by',
+User.hasMany(Order, {
+    foreignKey: 'customer',
 });
 
 User.hasMany(Comments, {

@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+const router = require('express').Router();
+
+>>>>>>> Stashed changes
 router.get('/', async (req, res) => {
 //     try {
 //     const postsData = await Posts.findAll({
@@ -24,7 +29,7 @@ router.get('/', async (req, res) => {
 //   }
   });
 
-  router.get('/dashboard', withAuth, async (req, res) => {
+  router.get('/dashboard', async (req, res) => {
     try {
       const userData = await Users.findByPk(req.session.user_id, {
         attributes: { exclude: ['password']},
@@ -44,4 +49,10 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+<<<<<<< Updated upstream
   
+=======
+  
+
+  module.exports = router;
+>>>>>>> Stashed changes
