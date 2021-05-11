@@ -9,7 +9,7 @@
 - [Questions](#questions)
 
 ## Description
-```As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
+As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
 =======
 Jen’s Hen’s
 
