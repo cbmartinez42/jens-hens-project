@@ -16,14 +16,14 @@ Chicken.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    sponsor_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'Users',
-            key: 'id',
-          },
-      },
+    // sponsor_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: true,
+    //     references: {
+    //         model: 'Users',
+    //         key: 'id',
+    //       },
+    //   },
     // inventory: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,

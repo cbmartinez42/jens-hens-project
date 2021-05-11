@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
-const { Roles, User, Sponsor, Product, Order, Chicken } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Sponsor, Product, Order, Chicken } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
 //     try {

@@ -12,7 +12,7 @@ Sponsor.init(
         primaryKey: true,
         autoIncrement: true,
     },
-    hen_name: {
+    hen: {
         type: DataTypes.INTEGER,
         references: {
             model: 'Chicken',
@@ -39,6 +39,7 @@ Sponsor.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
+    timestamps: false,
     modelName: 'Sponsor',
   }
 );

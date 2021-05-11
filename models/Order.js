@@ -18,7 +18,7 @@ Order.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'User',
         key: 'id',
       },
     },
@@ -47,7 +47,7 @@ Order.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    timestamps: false,
+    timestamps: true,
     modelName: 'Order',
   }
 );
