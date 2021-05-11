@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# jens-hens-project
-
-Jays working branch testing
-=======
-# Jen's Hens   
 
 [![License: MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents
@@ -16,6 +10,7 @@ Jays working branch testing
 
 ## Description
 Jen’s Hen’s
+
 ```
 As an admin I can maintain product inventory by incrementing or decrementing the current total on hand.
 As an admin I can see a list of orders sorted by fulfilled or not and then by order date.
@@ -76,5 +71,3 @@ Questions or issues should be raised either by emailing the developer at the lin
 ### To contact me:
 * Github: [cbmartinez42](https://github.com/cbmartinez42)  
 * Email: [cbmartinez42@gmail.com](mailto:cbmartinez42@gmail.com)
-
->>>>>>> main
