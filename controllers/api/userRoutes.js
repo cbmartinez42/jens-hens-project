@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const Users = require('../../models/User');
+const User = require('../../models/User');
 
 
 router.post('/', async (req, res) => {
     try {
         console.log(req.body);
-        const userData = await Users.create({
+        const userData = await User.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             username: req.body.username,
@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await Users.findOne({ where: { email: req.body.email } });
+        const userData = await User.findOne({ where: { email: req.body.email } });
         if (!userData) {
             res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
             return;
