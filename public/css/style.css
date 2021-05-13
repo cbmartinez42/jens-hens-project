@@ -34,3 +34,19 @@
     font-weight: 500;
     /* font-family: 'Righteous', cursive; */
   }
+
+  .btn-block {
+    width: 70%;
+    margin: 2%;
+}
+
+  .bold {
+    font-weight: 900;
+  }
+
+  .thumb {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+  }
