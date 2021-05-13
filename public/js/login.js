@@ -4,19 +4,19 @@ const signupHandler = async (event) => {
   
     const first_name = document.querySelector('#signup-first-name').value.trim();
     const last_name = document.querySelector('#signup-last-name').value.trim();
-    const username = document.querySelector('#signup-username').value.trim();
+    // const username = document.querySelector('#signup-username').value.trim();
     const email = document.querySelector('#signup-email').value.trim();
     const password = document.querySelector('#signup-password').value.trim();
   
-    if (first_name && last_name && username && email && password) {
-      const response = await fetch('/api/users', {
+    if (first_name && last_name && email && password) {
+      const response = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, username, email, password }),
+        body: JSON.stringify({ first_name, last_name, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -31,7 +31,7 @@ const signupHandler = async (event) => {
     const password = document.querySelector('#login-password').value.trim();
     if (email && password) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -39,7 +39,7 @@ const signupHandler = async (event) => {
       await response.json();
       if (response.ok) {
         // If successful, redirect the browser to the dashboard page
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         
         console.log(response)

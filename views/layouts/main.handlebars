@@ -16,13 +16,14 @@
       <a href="/" class="brand-logo">Jens Hens</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">home</a></li>
-        <li><a href="/dashboard">dashboard</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/checkout">Checkout</a></li>
 
         {{#if logged_in}}
-        <li><a href="/logout">logout</a></li>
+        <li><a id="logOutBtn1">Logout</a></li>
         {{else}}
-        <li><a href="/login">login/sign up</a></li>
+        <li><a href="/login">Login/sign up</a></li>
         {{/if}}
       </ul>
     </div>
@@ -33,10 +34,10 @@
     <li><a href="/dashboard">dashboard</a></li>
 
     {{#if logged_in}}
-    <li><a href="/logout">logout</a></li>
+    <li><a id="logOutBtn2">Logout</a></li>
     
     {{else}}
-    <li><a href="/login">login/sign up</a></li>
+    <li><a href="/login">Login/sign up</a></li>
     {{/if}}
   </ul>
 <div class="container">     
@@ -50,6 +51,9 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/js/materialize.js"></script>
   <script src="/js/index.js"></script>
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
   </body>
 
 </html>
