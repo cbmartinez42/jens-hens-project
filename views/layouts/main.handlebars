@@ -1,53 +1,80 @@
 <head>
-  <meta charset="UTF-8">
-  <title>{{title}}</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>{{title}}}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  
+  <body>
+  <!-- NAV BAR --> 
+  <!-- TODO - fit logo into header bar -->
+    <nav>
+      <a class="nav-wrapper">
+        <a href="/" class="responsive-img" style=""><img src="../assets/Jens Hens Logo 297x139.png" title='Home' alt="Jen's Hens" class="logo"></a>
+        <a href="/" class="brand-logo">Jens Hens</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">home</a></li>
+          <li><a href="/dashboard">dashboard</a></li>
+  
+          {{#if logged_in}}
+          <li><a href="/logout">logout</a></li>
+          {{else}}
+          <li><a href="/login">login/sign up</a></li>
+          {{/if}}
+        </ul>
+    </nav>
+  <!-- custom SIDE NAV for smaller screens -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="/">home</a></li>
+      <li><a href="/dashboard">dashboard</a></li>
+  
+      {{#if logged_in}}
+      <li><a href="/logout">logout</a></li>
+      
+      {{else}}
+      <li><a href="/login">login/sign up</a></li>
+      {{/if}}
+    </ul>
+  <div class="container">     
+  </div>
 
-<body>
+{{{body}}}
 
-  <nav>
-    <a class="nav-wrapper">
-      <a href="/" class=""><img src="" title='Home' alt="Don't Panic" class="logo"></a>
-      <a href="/" class="brand-logo">Jens Hens</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/checkout">Checkout</a></li>
-
-        {{#if logged_in}}
-        <li><a id="logOutBtn1">Logout</a></li>
-        {{else}}
-        <li><a href="/login">Login/sign up</a></li>
-        {{/if}}
-      </ul>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="/">home</a></li>
-    <li><a href="/dashboard">dashboard</a></li>
-
-    {{#if logged_in}}
-    <li><a id="logOutBtn2">Logout</a></li>
+  <!-- footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Navigation</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
+            <li><a class="grey-text text-lighten-3" href="/shop">Shop</a></li>
+            <li><a class="grey-text text-lighten-3" href="/dashboard">dashboard</a></li>
     
-    {{else}}
-    <li><a href="/login">Login/sign up</a></li>
-    {{/if}}
-  </ul>
-<div class="container">     
+            {{#if logged_in}}
+            <li><a href="/logout">logout</a></li>
+            {{else}}
+            <li><a href="/login">login/sign up</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      <p>© 2021 Copyright <a href=https://github.com/cbmartinez42/jens-hens-project>TeamAwesome</a></p>
+      </div>
+    </div>
+  </footer>
 
-<a href="/new" class="btn-floating btn-large waves-effect waves-circle waves-red red waves-ripple new-post-btn"><i class="material-icons" title="New Post">add</i></a>
-
-
-{{{ body }}}
-
-</div>   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/js/materialize.js"></script>
   <script src="/js/index.js"></script>
