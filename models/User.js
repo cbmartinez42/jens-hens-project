@@ -24,6 +24,15 @@ User.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
+        full_name: {
+            type: DataTypes.VIRTUAL,
+            get() {
+              return `${this.first_name} ${this.last_name}`;
+            },
+            set(value) {
+              throw new Error('Do not try to set the `fullName` value!');
+            }
+          },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -34,11 +43,11 @@ User.init(
         },
         admin: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            default: 0,
         },
         request_admin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: false,
+            defaultValue: 0,
         },
         password: {
             type: DataTypes.STRING,

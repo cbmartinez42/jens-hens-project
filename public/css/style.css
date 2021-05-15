@@ -1,7 +1,9 @@
-t:root {
+:root {
     --primary: #389393;
     --secondary: #f5a25d;
-    --tertiary: #fa7f72;
+    /* --tertiary: #fa7f72; */
+    --tertiary: #fcb5ad;
+    /* --tertiary: rgba(250,127,114,.4); */
     --quatrinary: #6c6b67;
     --light: #ebebeb;
     --dark: #182c23;
@@ -49,4 +51,12 @@ t:root {
     border-radius: 4px;  /* Rounded border */
     padding: 5px; /* Some padding */
     width: 150px; /* Set a small width */
+  }
+
+  header {
+    padding: 40px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--secondary);
+    border-bottom-style: solid;
   }

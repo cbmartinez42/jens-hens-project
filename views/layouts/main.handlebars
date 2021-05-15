@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>{{title}}}</title>
+    <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap" rel="stylesheet">
@@ -13,17 +13,21 @@
   <!-- TODO - fit logo into header bar -->
     <nav>
       <a class="nav-wrapper">
-        <a href="/" class="responsive-img" style=""><img src="../assets/Jens Hens Logo 297x139.png" title='Home' alt="Jen's Hens" class="logo"></a>
+        {{!-- <a href="/" class="responsive-img" style=""><img src="../../assets/Jens Hens Logo 297x139.png" title='Home' alt="Jen's Hens" class="logo"></a> --}}
         <a href="/" class="brand-logo">Jens Hens</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/">home</a></li>
-          <li><a href="/dashboard">dashboard</a></li>
+          {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
   
           {{#if logged_in}}
-          <li><a href="/logout">logout</a></li>
+          {{!-- <li><a href="/logout">Logout</a></li> --}}
+          <li><a id='logOutBtn1'>Logout</a></li>
+          <li><a href="/orders">Orders</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <li><a href="/users">Users</a></li>
           {{else}}
-          <li><a href="/login">login/sign up</a></li>
+          <li><a href="/login">Login/Sign Up</a></li>
           {{/if}}
         </ul>
     </nav>
@@ -33,7 +37,8 @@
       <li><a href="/dashboard">dashboard</a></li>
   
       {{#if logged_in}}
-      <li><a href="/logout">logout</a></li>
+      {{!-- <li><a href="/logout">logout</a></li> --}}
+      <li><a id='logOutBtn1'>logout</a></li>
       
       {{else}}
       <li><a href="/login">login/sign up</a></li>

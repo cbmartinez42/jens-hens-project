@@ -1,0 +1,45 @@
+
+<h3 class="center-align">All Orders</h3>
+
+<!-- Loop over each object in the projects array -->
+<div class="container">
+<table>
+    <thead>
+        <tr>
+            <th>Fulfilled?</th>
+            <th>Order Date</th>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Qty Requested</th>
+            <th>Item Price</th>
+            <th>Extended Price</th>
+        </tr>
+    </thead>
+    {{#each orders as |order| }}
+    <tbody>
+        {{#if fulfilled}}
+        {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
+        <td><label>
+            <input type="checkbox" checked="checked" disabled="disabled" />
+            <span>5/15/2021</span>
+        </label></td>
+        {{else}}
+        <td><label>
+            <input type="checkbox" />
+            <span>Fulifill Now?</span>
+        </label></td>
+        {{/if}}
+        <td>{{format_date createdAt}}</td>        
+        <td>{{id}}</td>
+        <td>{{User.full_name}}</td>
+        <td>{{order_quantity}}</td>
+        <td>$0.50</td>
+        <td>$100.00</td>
+    </tbody>
+    {{order_quanity}}
+    {{!-- <p>
+        Order ID: {{order.id}}
+      {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
+{{/each}}
+</table>
+</div>
