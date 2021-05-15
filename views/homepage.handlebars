@@ -1,19 +1,109 @@
 <!-- body -->
-<div class="center-align">
-    <div class="row">
-        <div class="col s12 m5 profile-inner center-align">
-            <div class="video-container">
-                {{!-- <iframe src="https://www.youtube.com/watch?v=Tr7vJgPTmLc" frameborder="0" allowfullscreen=false></iframe> --}}
-              </div>
+
+{{!-- main carousel --}}
+<div class='' style="margin-top: 2rem;  margin-right: 4rem;
+  margin-left: 4rem;">
+  <div class="carousel carousel-slider center m-5">
+    <div class="carousel-fixed-item center">
+      <a id="butNowBtn" class="waves-effect waves-light btn" style="filter: drop-shadow(0 0 0.75rem white);"><i
+          class="material-icons left">add_shopping_cart</i>Buy Now!</a>
+    </div>
+    <a class="carousel-item" href="#one!">
+      <img class="responsive-img" src="/images/stock/chicken-1851495_1920.jpg">
+    </a>
+    <a class="carousel-item" href="#two!">
+      <img class="responsive-img" src="/images/stock/chicken-1867521_1920.jpg">
+    </a>
+    <a class="carousel-item" href="#three!">
+      <img class="responsive-img" src="images/stock/chicken-3587380_1920.jpg">
+    </a>
+    <a class="carousel-item " href="#four!">
+      <img class="responsive-img" src="/images/stock/breakfast-3106870_1920.jpg">
+    </a>
+  </div>
+</div>
+
+{{!-- main home page content --}}
+<div class="center-align" style="margin-top: 3rem;">
+  {{!-- two column sponsor section --}}
+  <div class="container">
+    {{!-- sponsor a chicken today --}}
+    <div class="row mt-3">
+      {{!-- creating two columns --}}
+      {{!-- left side column -- VIDEO --}}
+      <div class="col s6">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/wYKJkHcaMzE" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
+      </div>
+      <div class="col s6">
+        <h3>Sponsor a Chicken Today!</h3>
+        <p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+          literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+          College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+          and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem
+          Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+          Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
+          1.10.32.
 
-        <div class="row">
-<a id="checkOutBtn" class="waves-effect waves-light btn"><i class="material-icons left">add_shopping_cart</i>Buy Now!</a>
+          The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+          1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original
+          form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-  
-  instagram carousel
 
-  
-  </div>   
-  <!-- end body -->
+{{!-- three icons to inform new customers --}}
+<div class="" style="background-color: white;">
+  <div class="row container">
+    <div class="col s4 mt">
+      <div class="center promo promo-example">
+        <i class="material-icons">autorenew</i>
+        <p class="promo-caption">Environmentally Responsible</p>
+        <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate
+          our custom components.</p>
+      </div>
+    </div>
+    <div class="col s4 mt">
+      <div class="center promo promo-example">
+        <i class="material-icons">favorite</i>
+        <p class="promo-caption">Beautiful Eggs</p>
+        <p class="light center">By utilizing elements and principles of Material Design, we were able to create a
+          framework that focuses on User Experience.</p>
+      </div>
+    </div>
+    <div class="col s4 mt">
+      <div class="center promo promo-example">
+        <i class="material-icons">sentiment_very_satisfied</i>
+        <p class="promo-caption">Delicious Taste</p>
+        <p class="light center">We have provided detailed documentation as well as specific code examples to help new
+          users get started.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="slider">
+  <h1 class='center-align'>Jen's Hens Instagram</h1>
+
+</div>
+
+
+{{!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery.instagramFeed.js"></script> --}}
+
+<script src="/js/materialize.js"></script>
+<script src="/js/home.js"></script>
+</div>
+<!-- end body -->
