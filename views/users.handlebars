@@ -12,17 +12,18 @@
             <th>email</th>
         </tr>
     </thead>
+    <div class="userBody">
     {{#each users as |user| }}
     <tbody>
         <td>{{admin}}</td>
         <td>{{request_admin}}</td>
         {{#unless request_admin}}
-        {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
         <td>N/A</td>
         {{else}}
         <td><label>
             <input type="checkbox" />
-            <span>Grant Admin Priveledges?</span>
+            <a data-id="{{id}}" class="waves-effect waves-light btn"><span>Grant Admin Priveledges?</span></a>
+            {{!-- <a data-id="{{id}}" class="waves-effect waves-light btn">Grant Admin Priveledges?</a> --}}
         </label></td>
         {{/unless}}
         <td>{{full_name}}</td>        
@@ -32,5 +33,6 @@
         Order ID: {{order.id}}
       {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
 {{/each}}
+</div>
 </table>
 </div>
