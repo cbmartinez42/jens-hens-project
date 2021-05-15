@@ -9,9 +9,9 @@ const signupHandler = async (event) => {
     const password = document.querySelector('#signup-password').value.trim();
     var request_admin = document.querySelector('#signup-request-admin').value;
     if (request_admin = 'on') {
-      request_admin = 1;
+      request_admin = "true";
     } else {
-      request_admin = 0;
+      request_admin = "false";
     };
   
     if (first_name && last_name && email && password) {

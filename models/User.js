@@ -43,11 +43,11 @@ User.init(
         },
         admin: {
             type: DataTypes.BOOLEAN,
-            default: 0,
+            defaultValue: false,
         },
         request_admin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: 0,
+            defaultValue: false,
         },
         password: {
             type: DataTypes.STRING,
