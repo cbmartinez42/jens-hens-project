@@ -1,36 +1,39 @@
 <head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  
-  <body>
-  <!-- NAV BAR --> 
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <!-- NAV BAR -->
   <!-- TODO - fit logo into header bar -->
-    <nav>
-      <a class="nav-wrapper">
-        {{!-- <a href="/" class="responsive-img" style=""><img src="../../assets/Jens Hens Logo 297x139.png" title='Home' alt="Jen's Hens" class="logo"></a> --}}
-        <a href="/" class="brand-logo">Jens Hens</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/">home</a></li>
-          {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
-  
-          {{#if logged_in}}
-          {{!-- <li><a href="/logout">Logout</a></li> --}}
-          <li><a id='logOutBtn1'>Logout</a></li>
-          <li><a href="/orders">Orders</a></li>
-          <li><a href="/checkout">Checkout</a></li>
-          <li><a href="/users">Users</a></li>
-          {{else}}
-          <li><a href="/login">Login/Sign Up</a></li>
-          {{/if}}
-        </ul>
-    </nav>
+  <nav>
+    <a class="nav-wrapper" style="background-color: rgb(122, 46, 10) !important;">
+      {{!-- <a href="/" class="brand-logo ml-4">Jens Hens</a> --}}
+      <a href="/" class="responsive-img" style=""><img src="images/Jens Hens Logo 297x139.png" title='Home'
+          alt="Jen's Hens" class="logo"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">home</a></li>
+        {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
+
+        {{#if logged_in}}
+        {{!-- <li><a href="/logout">Logout</a></li> --}}
+        <li><a id='logOutBtn1'>Logout</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/checkout">Checkout</a></li>
+        <li><a href="/users">Users</a></li>
+        {{else}}
+        <li><a href="/login">Login/Sign Up</a></li>
+        {{/if}}
+      </ul>
+  </nav>
   <!-- custom SIDE NAV for smaller screens -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/">home</a></li>
@@ -47,7 +50,7 @@
   {{!-- <div class="container">      --}}
   {{!-- </div> --}}
 
-{{{body}}}
+  {{{body}}}
 
   <!-- footer -->
   <footer class="page-footer">
@@ -63,7 +66,7 @@
             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
             <li><a class="grey-text text-lighten-3" href="/shop">Shop</a></li>
             <li><a class="grey-text text-lighten-3" href="/dashboard">dashboard</a></li>
-    
+
             {{#if logged_in}}
             <li><a href="/logout">logout</a></li>
             {{else}}
@@ -74,18 +77,19 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-      <p>© 2021 Copyright <a href=https://github.com/cbmartinez42/jens-hens-project>TeamAwesome</a></p>
+      <div class="center-align container">
+        <p>© 2021 Copyright <a href=https://github.com/cbmartinez42/jens-hens-project>TeamAwesome</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/js/materialize.js"></script>
   <script src="/js/index.js"></script>
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  </body>
+</body>
 
 </html>
