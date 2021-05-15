@@ -142,6 +142,10 @@ router.get('/users', async (req, res) => {
       res.status(404).end();
     }
   });
+
+  router.get('/placeorder', async (req, res) => {
+    res.render('placeorder');
+  });
  
   // render logout page
 // router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));

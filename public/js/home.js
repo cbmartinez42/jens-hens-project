@@ -1,3 +1,4 @@
+
 let instance = M.Carousel.init({
     fullWidth: true,
     indicators: true
@@ -27,3 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
 //     'margin': 0.5,
 //     'lazy_load': true
 // });
+
+const placeOrder = async () => {
+    console.log('buy now was clicked!');
+    window.location.replace('/placeorder');
+};
+
+  
+  document.querySelector('#buyNowBtn').addEventListener('click', placeOrder);

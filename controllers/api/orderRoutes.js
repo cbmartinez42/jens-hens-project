@@ -81,5 +81,8 @@ router.get('/myorders', async (req, res) => {
     }
   });
 
+  router.get('/placeorder', async (req, res) => {
+    res.render('/placeorder');
+  });
   
 module.exports = router;
