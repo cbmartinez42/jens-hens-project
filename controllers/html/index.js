@@ -31,9 +31,43 @@ router.get('/', async (req, res) => {
 //   }
   });
 
+  // Goto Checkout screen
   router.get('/checkout', async (req, res) => {
     res.render('checkout', {logged_in: req.session.logged_in})
     });
+  //Goto Orders Screen
+  //GET ALL ORDERS
+router.get('/orders', async (req, res) => {
+  try {
+    const ordersData = await Order.findAll({
+      include: [
+      {
+        model: User,
+        attributes: ['first_name','last_name','full_name'],
+      },
+    ],
+    //TO-DO MAKE IT SORT Figure out why if you uncomment out the below you get errors.
+    // order: [
+    //   ['date_created', 'DESC'],
+    // ],
+    })
+    // Serialize data so the template can read it
+    const orders = ordersData.map((order) => order.get({ plain: true }));
+    console.log('ORDERS>>>>>>>>',orders);
+    
+    if (!ordersData) {
+      res.status(400).json({message: 'No order data found!'})
+    }
+    // res.status(200).json(ordersData);
+    res.render('orders', {
+      orders,
+      logged_in: req.session.logged_in,
+    })
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 
   router.get('/dashboard', async (req, res) => {
     try {

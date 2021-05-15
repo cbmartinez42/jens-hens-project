@@ -3,7 +3,7 @@ const { Order, User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 //GET ALL ORDERS
-router.get('/x', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
       const ordersData = await Order.findAll(req.body, {
         include: [

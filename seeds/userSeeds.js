@@ -10,24 +10,24 @@ const userData = [
         password: 'password'
     },
     {
-        first_name: 'Wiggle',
-        last_name: 'Womp',
+        first_name: 'Chad',
+        last_name: 'Ferguson',
         email: 'test1@whatever',
         admin: true,
         request_admin: false,
         password: 'password'
     },
     {
-        first_name: 'Wompus',
-        last_name: 'Wiggly',
+        first_name: 'Kathy',
+        last_name: 'Williams',
         email: 'test2@whatever',
         admin: false,
         request_admin: false,
         password: 'password'
     },
     {
-        first_name: 'Shanty',
-        last_name: 'sea',
+        first_name: 'Jackie',
+        last_name: 'Nguyen',
         email: 'test3@whatever',
         admin: false,
         request_admin: false,
