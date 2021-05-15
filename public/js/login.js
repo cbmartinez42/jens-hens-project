@@ -7,11 +7,18 @@ const signupHandler = async (event) => {
     // const username = document.querySelector('#signup-username').value.trim();
     const email = document.querySelector('#signup-email').value.trim();
     const password = document.querySelector('#signup-password').value.trim();
+    var request_admin = document.querySelector('#signup-request-admin').value;
+    if (request_admin = 'on') {
+      request_admin = 1;
+    } else {
+      request_admin = 0;
+    };
   
     if (first_name && last_name && email && password) {
+      console.log('admin request: ',request_admin);
       const response = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, password }),
+        body: JSON.stringify({ first_name, last_name, email, password, request_admin }),
         headers: { 'Content-Type': 'application/json' },
       });
   

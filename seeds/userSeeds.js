@@ -30,7 +30,7 @@ const userData = [
         last_name: 'Nguyen',
         email: 'test3@whatever',
         admin: false,
-        request_admin: false,
+        request_admin: true,
         password: 'password'
     }
 ]

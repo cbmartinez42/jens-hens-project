@@ -35,8 +35,8 @@ router.get('/', async (req, res) => {
   router.get('/checkout', async (req, res) => {
     res.render('checkout', {logged_in: req.session.logged_in})
     });
-  //Goto Orders Screen
-  //GET ALL ORDERS
+
+  //Goto All Orders Screen TODO ADMIN ONLY
 router.get('/orders', async (req, res) => {
   try {
     const ordersData = await Order.findAll({
@@ -61,6 +61,38 @@ router.get('/orders', async (req, res) => {
     // res.status(200).json(ordersData);
     res.render('orders', {
       orders,
+      logged_in: req.session.logged_in,
+    })
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Goto Users Screen TODO ADMIN ONLY
+router.get('/users', async (req, res) => {
+  try {
+    const usersData = await User.findAll({
+    //   include: [
+    //   {
+    //     model: User,
+    //     attributes: ['first_name','last_name','full_name'],
+    //   },
+    // ],
+    //TO-DO MAKE IT SORT Figure out why if you uncomment out the below you get errors.
+    // order: [
+    //   ['date_created', 'DESC'],
+    // ],
+    })
+    // Serialize data so the template can read it
+    const users = usersData.map((user) => user.get({ plain: true }));
+    console.log('USERS>>>>>>>>',users);
+    
+    if (!usersData) {
+      res.status(400).json({message: 'No user data found!'})
+    }
+    // res.status(200).json(ordersData);
+    res.render('users', {
+      users,
       logged_in: req.session.logged_in,
     })
   } catch (err) {
@@ -100,16 +132,19 @@ router.get('/orders', async (req, res) => {
     res.render('login');
   });
 
-  // router.post('/logout', (req, res) => {
-  //   if (req.session.logged_in) {
-  //     req.session.destroy(() => {
-  //       res.status(204).end();
-  //     });
-  //   } else {
-  //     res.status(404).end();
-  //   }
-  // });
+  router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+        res.render('login');
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
  
+  // render logout page
+// router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));
 
   module.exports = router;
 
