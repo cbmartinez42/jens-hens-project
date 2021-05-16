@@ -1,15 +1,15 @@
 
-
 const orderQtyField = document.getElementById('orderQty');
 console.log('zzz>>>', orderQtyField);
 const subTotalField = document.getElementById('subTotal');
 var unitPrice = .50
-
+const checkboxTerms = document.getElementById('checkboxTerms');
+let subTotal = 0;
 
 function init() {
   var qty = JSON.parse(localStorage.getItem("orderQty"));
   console.log('qty>>>', qty);
-  var subTotal = qty * unitPrice;
+  subTotal = qty * unitPrice;
   orderQtyField.innerHTML = qty;
   subTotalField.innerHTML = subTotal;
 };
@@ -23,25 +23,50 @@ init();
 // var checkOutBtn = false;
 // console.log(checkOutBtn);
 
-// const getOrder = async () => {
-//     // event.preventDefault();
-//     const url = window.location.pathname;
-//     const id = url.substring(url.lastIndexOf('/') + 1)
-//     const response = await fetch(`/api/order/${id}`, {
-//       method: 'GET',
-//     });
+const getOrder = async (event) => {
+  event.preventDefault();
+  let qty = parseInt(JSON.parse(localStorage.getItem("orderQty")));
   
-//     if (response.ok) {
-//         // return response;
-//         document.location.replace('/checkout');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   };
-  
+  console.log(checkboxTerms)
+  console.log(qty)
+  if(checkboxTerms.value){
+
+  const id = localStorage.getItem("orderQuantity")
+  const response = await fetch(`/api/order/`, {
+    method: 'POST',
+    body: JSON.stringify({qty}),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  console.log(response);
+  if (response.ok) {
+    // return response;
+    document.location.replace(`/thankyou`);
+  } else {
+    alert(response.statusText);
+  }
+}
+};
+
+paypal.Buttons({
+  createOrder: function (data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '0.01' //has to be changed
+        }
+      }]
+    });
+  },
+  onApprove: function (data, actions) {
+    return actions.order.capture().then(function (details) {
+      alert('Transaction completed by ' + details.payer.name.given_name);
+    });
+  }
+}).render('#paypal-button-container'); // Display payment options on your web page
 //   document.querySelector('#checkOutBtn').addEventListener('click', getOrder);
 
-    
-// document
-// .querySelector('#checkout')
-// .addEventListener('click', btnHandler);
+
+document
+  .querySelector('#checkout')
+  .addEventListener('click', getOrder);

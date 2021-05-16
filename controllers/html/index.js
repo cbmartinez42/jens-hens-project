@@ -125,7 +125,7 @@ router.get('/dashboard', async (req, res) => {
       },
       include: [{
         model: Order,
-        attributes: ['id', 'customer', 'order_quantity', 'fulfilled']
+        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at']
       }],
     });
     const user = userData.get({
@@ -169,6 +169,9 @@ router.get('/placeorder', async (req, res) => {
   res.render('placeorder');
 });
 
+router.get('/thankyou', async(req,res) => {
+  res.render('thankyou')
+})
 // render logout page
 // router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));
 
