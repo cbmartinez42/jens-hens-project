@@ -11,23 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-//   $(window).on('load', function(){
-//     $.instagramFeed({
-//       'username': 'wcastl',
-//       'container': "#instagram-feed-demo",
-//       'items': 8,
-//       'margin': 0.5
-//     });
-//   });
+  var userFeed = new Instafeed({
+      get: 'user',
+      target: "instafeed-container",
+      resolution: 'low_resolution',
+      accessToken: "IGQVJXNVRyWlV4VkVJS21vMG90dndIenZAPWmRzUGhNWnNXRXBEMVAxRDdwZA1R4Mm1mZAUdiNXBhdnM4NlNOeTFzS1QzMUhjNnMtbms4OUljYTd6eGRKNE5hRVNwVF9vZAGpsWU1PT1UzYzh6b3daUDVjRwZDZD"
 
-
-//   new InstagramFeed({
-//     'username': 'instagram',
-//     'container': "#instagram-feed-demo",
-//     'items_per_row': 6,
-//     'margin': 0.5,
-//     'lazy_load': true
-// });
+  });
+  userFeed.run();
 
 const placeOrder = async () => {
     console.log('buy now was clicked!');
