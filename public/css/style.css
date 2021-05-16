@@ -32,6 +32,11 @@
     background-color: var(--tertiary);
   }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
   nav {
     /* display: block!important; */
     background-color: var(--primary);
