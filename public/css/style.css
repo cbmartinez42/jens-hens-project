@@ -14,12 +14,28 @@
     --black: #000000;
   }
   
-  .nav-wrapper {
-    background-color: rgb(122, 46, 10) !important;
+  .nav-color {
+    background-color: rgb(124, 62, 33) !important;
+  }
+
+  .bg-color {
+    background-color: rgb(202, 202, 202);
   }
 
 .mt {
   margin-top: 2rem;
+}
+
+.mb {
+  margin-bottom: 2rem;
+}
+
+.mt2 {
+  margin-top: 4rem;
+}
+
+.mb2 {
+  margin-bottom: 4rem;
 }
 
   body {
