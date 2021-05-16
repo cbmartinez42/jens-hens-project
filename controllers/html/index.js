@@ -103,15 +103,17 @@ router.get('/users', async (req, res) => {
 
   router.get('/dashboard', async (req, res) => {
     try {
-      const userData = await Users.findByPk(req.session.user_id, {
+      const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password']},
           include: [{
-          model: Posts, 
-          attributes: ['id', 'post_name', 'post_text', 'created_at'],
+          model: Order, 
+          attributes: ['id', 'customer', 'order_quantity', 'fulfilled']
         }],
       });
       const user = userData.get({plain: true});
-      // console.log(user)
+      console.log(user)
+      console.log(user.Orders)
+      
       res.render('dashboard', {
         ...user, 
         logged_in: true

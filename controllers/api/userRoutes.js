@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../../models/User');
 
 
+
 router.post('/', async (req, res) => {
     try {
         console.log(req.body);
@@ -29,14 +30,14 @@ router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
         if (!userData) {
-            res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
+            res.status(400).json({ message: "This is not looking good...you'd better try again"});
             return;
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
-        console.log(validPassword)
+
         if (!validPassword) {
-            res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
+            res.status(400).json({ message: "This is not looking good...you'd better try again"});
             return;
         }
 
@@ -44,7 +45,7 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
 
-            res.json({ user: userData, message: "Welcome! Please make sure your towel is handy at all times while visiting!"});
+            res.json({ user: userData, message: "Welcome! You did it!"});
         });
     } catch (err) {
         res.status(400).json(err);
