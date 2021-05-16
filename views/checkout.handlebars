@@ -1,15 +1,14 @@
-<script src="https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"> // Replace YOUR_CLIENT_ID with your sandbox client ID  <---------- need this
 <div class="row">
-    <div class="col s5">
-        <h5>Shopping Cart</h5>
-        <a target="_blank" href="../public/images/stock/eggs-1374141_1920.jpg">
-        <img src="./images/stock/eggs-1374141_1920.jpg" class="thumb" alt="Eggs">
-        <table>
+  <div class="col s5">
+    <h5>Shopping Cart</h5>
+    <a target="_blank" href="../public/images/stock/eggs-1374141_1920.jpg">
+      <img src="./images/stock/eggs-1374141_1920.jpg" class="thumb" alt="Eggs">
+      <table>
         <thead>
           <tr>
-              <th>Qty</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+            <th>Qty</th>
+            <th>Item Name</th>
+            <th>Item Price</th>
           </tr>
         </thead>
 
@@ -32,55 +31,45 @@
         </tbody>
       </table>
     </a>
-    </div>
-    <div class="col s7">
-        <h5>Checkout</h5>
-        <form action="#">
-            <p>
-            <label>
-                <input type="checkbox" />
-                <span class="black-text">I agree with Terms & Conditions</span>
-            </label>
-            </p>
-        </form>
-        <a id="checkout" class="waves-effect waves-light btn btn-block">Checkout</a>
-                {{!-- <a class="waves-effect waves-light btn btn-block">Paypal</a> --}}
-        <div id="paypal-button-container"></div>
-        <h5>Next Steps</h5>
-        <p class="bold">Pick-up Instructions</p>
-        <p>Tell us when your comingto pick up your order.</p>
-        <p class="bold">Payment Information</p>
-        <p>Choose a payment method and enter your payment details.</p>
-        <p class="bold">Order Confirmation</p>
-        <p>Place your order and receive confirmation.</p>
-    </div>
+  </div>
+  <div class="col s7">
+    <h5>Checkout</h5>
+    <form action="#">
+      <p>
+        <label>
+          <input id="checkboxTerms" type="checkbox" />
+          <span class="black-text">I agree with Terms & Conditions</span>
+        </label>
+      </p>
+    </form>
+    <a id="checkout" class="waves-effect waves-light btn btn-block">Checkout</a>
+    {{!-- <a class="waves-effect waves-light btn btn-block">Paypal</a> --}}
+    <div id="paypal-button-container"></div>
+    <h5>Next Steps</h5>
+    <p class="bold">Pick-up Instructions</p>
+    <p>Tell us when your comingto pick up your order.</p>
+    <p class="bold">Payment Information</p>
+    <p>Choose a payment method and enter your payment details.</p>
+    <p class="bold">Order Confirmation</p>
+    <p>Place your order and receive confirmation.</p>
+  </div>
 </div>
 {{#if checkOutBtn}}
-    {{> shippingmethod}}
+{{> shippingmethod}}
 {{/if}}
-{{> payment}}
-{{> confirmation}}
+{{!-- {{> payment}} --}}
+{{!-- {{> confirmation}} --}}
 
-{{!-- <script src="./public/js/checkout.js"></script> --}}
+{{!--
+<script src="./public/js/checkout.js"></script> --}}
+<script  src = "https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"></script>
+<div id="paypal-button-container"></div>
 
-    <script>
-      paypal.Buttons({
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: '0.01'
-              }
-            }]
-          });
-        },
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
-          });
-        }
-      }).render('#paypal-button-container'); // Display payment options on your web page
-    </script>
+<script>
+
+
+ 
+</script>
 
 
 <script src="./js/checkout.js"></script>

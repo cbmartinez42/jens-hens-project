@@ -39,7 +39,7 @@ router.get('/myorders', async (req, res) => {
       include: [
       {
         model: User,
-        attributes: ['first_name'],
+        attributes: ['full_name'],
       },
     ],
     order: [
@@ -85,4 +85,16 @@ router.get('/myorders', async (req, res) => {
     res.render('/placeorder');
   });
   
+  router.post('/', async(req,res) => {
+    console.log(req.body)
+    const order_quantity = req.body.qty;
+    const customer = req.session.user_id;
+    const orderData = await Order.create({order_quantity:order_quantity, customer:customer});
+    if(orderData){
+      res.status(200).json(orderData)
+    }
+   else{
+     res.status(400).json(err)
+   }
+  })
 module.exports = router;
