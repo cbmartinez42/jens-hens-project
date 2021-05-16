@@ -1,4 +1,4 @@
-
+<script src="https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"> // Replace YOUR_CLIENT_ID with your sandbox client ID  <---------- need this
 <div class="row">
     <div class="col s5">
         <h5>Shopping Cart</h5>
@@ -44,7 +44,8 @@
             </p>
         </form>
         <a id="checkout" class="waves-effect waves-light btn btn-block">Checkout</a>
-        <a class="waves-effect waves-light btn btn-block">Paypal</a>
+                {{!-- <a class="waves-effect waves-light btn btn-block">Paypal</a> --}}
+        <div id="paypal-button-container"></div>
         <h5>Next Steps</h5>
         <p class="bold">Pick-up Instructions</p>
         <p>Tell us when your comingto pick up your order.</p>
@@ -61,4 +62,25 @@
 {{> confirmation}}
 
 {{!-- <script src="./public/js/checkout.js"></script> --}}
+
+    <script>
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: '0.01'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+          });
+        }
+      }).render('#paypal-button-container'); // Display payment options on your web page
+    </script>
+
+
 <script src="./js/checkout.js"></script>
