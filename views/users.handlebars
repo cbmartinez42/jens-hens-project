@@ -2,37 +2,38 @@
 
 <!-- Loop over each object in the projects array -->
 <div class="container">
-<table>
-    <thead>
-        <tr>
-            <th>Is Admin</th>
-            <th>Admin Requested?</th>
-            <th>Make Admin?</th>
-            <th>Full Name</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <div class="userBody">
-    {{#each users as |user| }}
-    <tbody>
-        <td>{{admin}}</td>
-        <td>{{request_admin}}</td>
-        {{#unless request_admin}}
-        <td>N/A</td>
-        {{else}}
-        <td><label>
-            <input type="checkbox" />
-            <a data-id="{{id}}" class="waves-effect waves-light btn"><span>Grant Admin Priveledges?</span></a>
-            {{!-- <a data-id="{{id}}" class="waves-effect waves-light btn">Grant Admin Priveledges?</a> --}}
-        </label></td>
-        {{/unless}}
-        <td>{{full_name}}</td>        
-        <td>{{email}}</td>
-    </tbody>
-    {{!-- <p>
-        Order ID: {{order.id}}
-      {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
-{{/each}}
+    <table>
+        <thead>
+            <tr>
+                <th>Is Admin</th>
+                <th>Admin Requested?</th>
+                <th>Make Admin?</th>
+                <th>Full Name</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <div>
+            {{#each users as |user| }}
+            <tbody class="userBody">
+                <td>{{admin}}</td>
+                <td>{{request_admin}}</td>
+                {{#unless request_admin}}
+                <td>N/A</td>
+                {{else}}
+                <td><label>
+                <input type="checkbox" />
+                    <a class="waves-effect waves-light btn"><span data-id={{id}} >Grant Admin Priveledges?</span></a>
+                    {{!-- <a data-id="{{id}}" class="waves-effect waves-light btn">Grant Admin Priveledges?</a> --}}
+                </label></td>
+                {{/unless}}
+                <td>{{full_name}}</td>        
+                <td>{{email}}</td>
+            </tbody>
+            {{!-- <p>
+                Order ID: {{order.id}}
+            {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
+            {{/each}}
+        </div>
+    </table>
 </div>
-</table>
-</div>
+<script src="/js/user.js"></script>
