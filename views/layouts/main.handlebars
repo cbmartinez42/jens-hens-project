@@ -12,20 +12,16 @@
 
 <body class="bg-color">
   <!-- NAV BAR -->
-  <!-- TODO - fit logo into header bar -->
   <nav class="nav-color">
     <a class="nav-wrapper" style="filter: drop-shadow(0 0 0.75rem white);">
-      {{!-- <a href="/" class="brand-logo ml-4">Jens Hens</a> --}}
       <a href="/" class="responsive-img" style=""><img src="images/Jens Hens Logo 297x139.png" title='Home'
           alt="Jen's Hens" class="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down full-nav-links">
         <li><a href="/">Home</a></li>
-        {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
+
 
         {{#if logged_in}}
-        {{!-- <li><a href="/logout">Logout</a></li> --}}
-        {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
         <li><a href="/checkout">Checkout</a></li>
         {{#if admin}}
         <li><a href="/users">Users</a></li>
@@ -77,7 +73,7 @@
             {{#if logged_in}}
             <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
             {{else}}
-homesssss            <li><a class="grey-text text-lighten-3" href="/login">Login/Sign Up</a></li>
+            <li><a class="grey-text text-lighten-3" href="/login">Login/Sign Up</a></li>
             {{/if}}
           </ul>
         </div>

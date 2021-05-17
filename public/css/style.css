@@ -13,7 +13,13 @@
     --nav-alt: #D40000;
     --black: #000000;
   }
-  
+  nav {
+    height: 11.5rem!important;
+  }
+
+  .full-nav-links {
+    margin-right: 2rem;
+  }
   #instafeed-container {
     display: grid;
     grid-template-columns: repeat(4, 4fr);
