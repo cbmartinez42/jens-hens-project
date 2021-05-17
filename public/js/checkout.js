@@ -1,4 +1,4 @@
-
+const purchaseButtons = document.getElementsByClassName('purchase-buttons')
 const orderQtyField = document.getElementById('orderQty');
 console.log('zzz>>>', orderQtyField);
 const subTotalField = document.getElementById('subTotal');
@@ -15,6 +15,8 @@ function init() {
 };
 
 init();
+
+
 
 // var checkOutBtn = false;
 // console.log(checkOutBtn);
@@ -63,6 +65,13 @@ paypal.Buttons({
 //   document.querySelector('#checkOutBtn').addEventListener('click', getOrder);
 
 
+
+const enableButtons = (event) => {
+  purchaseButtons.classList.remove('disabled')
+}
+
+
+document.querySelector('#checkboxTerms').addEventListener('change', enableButtons)
 document
   .querySelector('#checkout')
   .addEventListener('click', getOrder);
