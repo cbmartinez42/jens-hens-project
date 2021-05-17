@@ -40,11 +40,11 @@ router.get('/', withAuth, async (req, res) => {
   //   } catch (err) {
   //     res.status(500).json(err)
   //   }
-  console.log()
+  // console.log()
 });
 
 // Goto Checkout screen
-router.get('/checkout', async (req, res) => {
+router.get('/checkout', withAuth, async (req, res) => {
   res.render('checkout', {
     logged_in: req.session.logged_in
   })
@@ -54,7 +54,7 @@ router.get('/checkout', async (req, res) => {
 //****** */
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->users.handlebars
-router.get('/orders', async (req, res) => {
+router.get('/orders', withAuth, async (req, res) => {
   try {
     const ordersData = await Order.findAll({
       include: [{
@@ -90,8 +90,8 @@ router.get('/orders', async (req, res) => {
 //****** */
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->orders.handlebars
-router.get('/users', async (req, res) => {
-  console.log('admin??? ',req.session.admin)
+router.get('/users', withAuth, async (req, res) => {
+  // console.log('admin??? ',req.session.admin)
   // if (req.session.admin = false) {
   //   return;
   // }
@@ -108,7 +108,7 @@ router.get('/users', async (req, res) => {
     const users = usersData.map((user) => user.get({
       plain: true
     }));
-    console.log('USERS>>>>>>>>', users);
+    // console.log('USERS>>>>>>>>', users);
 
     if (!usersData) {
       res.status(400).json({
@@ -140,8 +140,8 @@ router.get('/dashboard', async (req, res) => {
     const user = userData.get({
       plain: true
     });
-    console.log(user)
-    console.log(user.Orders)
+    // console.log(user)
+    // console.log(user.Orders)
 
     res.render('dashboard', {
       ...user,
