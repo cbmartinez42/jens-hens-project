@@ -20,17 +20,17 @@
           alt="Jen's Hens" class="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">home</a></li>
+        <li><a href="/">Home</a></li>
         {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
 
         {{#if logged_in}}
         {{!-- <li><a href="/logout">Logout</a></li> --}}
         {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
         <li><a href="/checkout">Checkout</a></li>
-        {{!-- {{#if is_admin}} --}}
+        {{#if admin}}
         <li><a href="/users">Users</a></li>
         <li><a href="/orders">Orders</a></li>
-        {{!-- {{/if}} --}}
+        {{/if}}
         <li><a id='logOutBtn1'>Logout</a></li>
         {{else}}
         <li><a href="/login">Login/Sign Up</a></li>
@@ -43,7 +43,7 @@
     
   
       {{#if logged_in}}
-      {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
+      <li><a href="/checkout">Checkout</a></li>
       {{#if admin}}
         <li><a href="/users">Users</a></li>
         <li><a href="/orders">Orders</a></li>
@@ -73,11 +73,11 @@
           <h5 class="white-text">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
-            <li><a class="grey-text text-lighten-3" href="/dashboard">dashboard</a></li>
+            {{!-- <li><a class="grey-text text-lighten-3" href="/dashboard">dashboard</a></li> --}}
             {{#if logged_in}}
             <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
             {{else}}
-            <li><a class="grey-text text-lighten-3" href="/login">Login/Sign Up</a></li>
+homesssss            <li><a class="grey-text text-lighten-3" href="/login">Login/Sign Up</a></li>
             {{/if}}
           </ul>
         </div>

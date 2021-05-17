@@ -11,14 +11,10 @@ function init() {
   console.log('qty>>>', qty);
   subTotal = qty * unitPrice;
   orderQtyField.innerHTML = qty;
-  subTotalField.innerHTML = subTotal;
+  subTotalField.innerHTML = "$"+subTotal.toFixed(2);
 };
 
 init();
-
-
-
-
 
 // var checkOutBtn = false;
 // console.log(checkOutBtn);

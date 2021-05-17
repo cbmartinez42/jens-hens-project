@@ -98,3 +98,26 @@ router.get('/myorders', async (req, res) => {
    }
   })
 module.exports = router;
+
+//UPDATE ORDER FULFILLED FLAG ONLY
+router.put('/:id', async (req, res) => { //withAuth, 
+  // const id = req.params.id
+  try {
+      const orderData = await Order.update({
+          fulfilled: req.body.fulfilled,
+      }, {
+          where: {
+              id: req.params.id
+          }
+      });
+      if (!orderData) {
+          res.status(404).json({
+              message: 'No order with this ID. Please try again.'
+          });
+          return;
+      }
+      res.status(200).json(orderData)
+  } catch (err) {
+      res.status(500).json(err)
+  }
+});
