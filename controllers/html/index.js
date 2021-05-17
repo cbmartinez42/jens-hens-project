@@ -8,26 +8,6 @@ const {
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: {
-//         exclude: ['password']
-//       },
-//       include: {
-//         attributes: ['admin']
-//       }
-//     })
-//     console.log('>>>>>>>>>>', userData)
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// })
-
-
-
-
-
 
 
 
@@ -37,9 +17,6 @@ router.get('/', async (req, res) => {
     logged_in: req.session.logged_in, 
     is_admin: req.session.admin
   })
-});
-
-//  -------------------------------------------------------------
   //     try {
   //     const postsData = await Posts.findAll({
   //       // limit: 20, not needed since this is such a small site
@@ -63,7 +40,8 @@ router.get('/', async (req, res) => {
   //   } catch (err) {
   //     res.status(500).json(err)
   //   }
-
+  console.log()
+});
 
 // Goto Checkout screen
 router.get('/checkout', async (req, res) => {
