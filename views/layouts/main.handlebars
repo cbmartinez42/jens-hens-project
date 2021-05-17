@@ -25,11 +25,11 @@
 
         {{#if logged_in}}
         {{!-- <li><a href="/logout">Logout</a></li> --}}
-        <li><a href="/dashboard">dashboard</a></li>
+        {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
         <li><a href="/checkout">Checkout</a></li>
         {{!-- {{#if is_admin}} --}}
-        {{!-- <li><a href="/users">Users</a></li>
-        <li><a href="/orders">Orders</a></li> --}}
+        <li><a href="/users">Users</a></li>
+        <li><a href="/orders">Orders</a></li>
         {{!-- {{/if}} --}}
         <li><a id='logOutBtn1'>Logout</a></li>
         {{else}}
@@ -43,7 +43,11 @@
     
   
       {{#if logged_in}}
-      <li><a href="/dashboard">dashboard</a></li>
+      {{!-- <li><a href="/dashboard">dashboard</a></li> --}}
+      {{!-- {{#if admin}} --}}
+        <li><a href="/users">Users</a></li>
+        <li><a href="/orders">Orders</a></li>
+        {{!-- {{/if}} --}}
       <li><a id='logOutBtn1'>logout</a></li>
       
       {{else}}

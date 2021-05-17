@@ -16,39 +16,41 @@ const requestAdmin = async (e) => {
     location.reload();
 }
 
-const postHandler = (event) => {
 
-    if (event.target.hasAttribute('data-delete-id')) {
-        deletePost(event);
-    } else if (event.target.hasAttribute('data-edit-id')) {
-        editPost(event);
-    }
-};
 
-const deletePost = async (event) => {
-    const id = event.target.getAttribute('data-delete-id');
+// const postHandler = (event) => {
 
-    let confirmation = confirm('This will delete the post, and cannot be undone. Would you like to continue?');
+//     if (event.target.hasAttribute('data-delete-id')) {
+//         deletePost(event);
+//     } else if (event.target.hasAttribute('data-edit-id')) {
+//         editPost(event);
+//     }
+// };
 
-    if (confirmation === true) {
-        const response = await fetch(`/api/posts/${id}`, {
-            method: 'DELETE',
-        });
+// const deletePost = async (event) => {
+//     const id = event.target.getAttribute('data-delete-id');
 
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
-    }
-};
+//     let confirmation = confirm('This will delete the post, and cannot be undone. Would you like to continue?');
 
-const editPost = async (event) => {
-    const id = event.target.getAttribute('data-edit-id');
-    window.location.replace(`/edit-post/${id}`)
-}
+//     if (confirmation === true) {
+//         const response = await fetch(`/api/posts/${id}`, {
+//             method: 'DELETE',
+//         });
 
-document.querySelector('.orders-container').addEventListener('click', postHandler)
+//         if (response.ok) {
+//             document.location.reload();
+//         } else {
+//             alert(response.statusText);
+//         }
+//     }
+// };
+
+// const editPost = async (event) => {
+//     const id = event.target.getAttribute('data-edit-id');
+//     window.location.replace(`/edit-post/${id}`)
+// }
+
+// document.querySelector('.orders-container').addEventListener('click', postHandler)
 
 
 
