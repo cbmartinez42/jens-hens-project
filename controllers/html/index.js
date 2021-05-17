@@ -11,11 +11,11 @@ const withAuth = require('../../utils/auth');
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   //TO-DO Redirect if Not Logged in (Chris)
   res.render('homepage', {
     logged_in: req.session.logged_in, 
-    is_admin: req.session.admin
+    admin: req.session.admin
   })
   //     try {
   //     const postsData = await Posts.findAll({
@@ -91,6 +91,10 @@ router.get('/orders', async (req, res) => {
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->orders.handlebars
 router.get('/users', async (req, res) => {
+  console.log('admin??? ',req.session.admin)
+  // if (req.session.admin = false) {
+  //   return;
+  // }
   try {
     const usersData = await User.findAll({
       attributes: {
