@@ -8,10 +8,14 @@ const {
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+
+
 router.get('/', async (req, res) => {
   //TO-DO Redirect if Not Logged in (Chris)
   res.render('homepage', {
-    logged_in: req.session.logged_in
+    logged_in: req.session.logged_in, 
+    is_admin: req.session.admin
   })
   //     try {
   //     const postsData = await Posts.findAll({
@@ -36,6 +40,7 @@ router.get('/', async (req, res) => {
   //   } catch (err) {
   //     res.status(500).json(err)
   //   }
+  console.log()
 });
 
 // Goto Checkout screen
@@ -64,7 +69,7 @@ router.get('/orders', async (req, res) => {
     const orders = ordersData.map((order) => order.get({
       plain: true
     }));
-    console.log('ORDERS>>>>>>>>', orders);
+
 
     if (!ordersData) {
       res.status(400).json({
