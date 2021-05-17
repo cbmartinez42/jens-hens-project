@@ -9,39 +9,18 @@ const {
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-  //TO-DO Redirect if Not Logged in (Chris)
   res.render('homepage', {
-    logged_in: req.session.logged_in
+    logged_in: req.session.logged_in, 
+    is_admin: req.session.is_admin
   })
-  //     try {
-  //     const postsData = await Posts.findAll({
-  //       // limit: 20, not needed since this is such a small site
-  //       order: [['updated_at', 'DESC']],
-  //       include: [
-  //         {
-  //           model: Users, 
-  //           attributes: ['username']
-  //         },
 
-  //       ]
-  //     });
-
-  //     const posts = postsData.map((posts) =>
-  //     posts.get({plain:true})
-
-  //     );
-  //     res.render('home', {posts, 
-  //         // logged_in: req.session.logged_in 
-  //     });
-  //   } catch (err) {
-  //     res.status(500).json(err)
-  //   }
 });
 
 // Goto Checkout screen
 router.get('/checkout', async (req, res) => {
   res.render('checkout', {
-    logged_in: req.session.logged_in
+    logged_in: req.session.logged_in, 
+    is_admin: req.session.is_admin
   })
 });
 
@@ -74,7 +53,8 @@ router.get('/orders', async (req, res) => {
     // res.status(200).json(ordersData);
     res.render('orders', {
       orders,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in, 
+      is_admin: req.session.is_admin
     })
   } catch (err) {
     res.status(400).json(err);
@@ -109,7 +89,8 @@ router.get('/users', async (req, res) => {
     // res.status(200).json(ordersData);
     res.render('users', {
       users,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in, 
+      is_admin: req.session.is_admin
     })
   } catch (err) {
     res.status(400).json(err);
@@ -131,12 +112,11 @@ router.get('/dashboard', async (req, res) => {
     const user = userData.get({
       plain: true
     });
-    console.log(user)
-    console.log(user.Orders)
 
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
+      is_admin: req.session.is_admin
     });
 
   } catch (err) {
@@ -166,13 +146,55 @@ router.post('/logout', (req, res) => {
 });
 
 router.get('/placeorder', async (req, res) => {
-  res.render('placeorder');
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {
+        exclude: ['password']
+      },
+      
+    });
+    const user = userData.get({
+      plain: true
+    });
+
+    res.render('placeorder', {
+      ...user,
+      logged_in: true,
+      is_admin: req.session.is_admin
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+
+
 router.get('/thankyou', async(req,res) => {
-  res.render('thankyou')
-})
-// render logout page
-// router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {
+        exclude: ['password']
+      },
+      // include: [{
+      //   model: Order,
+      //   attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at']
+      // }],
+    });
+    const user = userData.get({
+      plain: true
+    });
+
+    res.render('thankyou', {
+      ...user,
+      logged_in: true,
+      is_admin: req.session.is_admin
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

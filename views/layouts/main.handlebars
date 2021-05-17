@@ -25,10 +25,13 @@
 
         {{#if logged_in}}
         {{!-- <li><a href="/logout">Logout</a></li> --}}
-        <li><a id='logOutBtn1'>Logout</a></li>
-        <li><a href="/orders">Orders</a></li>
+        <li><a href="/dashboard">dashboard</a></li>
         <li><a href="/checkout">Checkout</a></li>
-        <li><a href="/users">Users</a></li>
+        {{!-- {{#if is_admin}} --}}
+        {{!-- <li><a href="/users">Users</a></li>
+        <li><a href="/orders">Orders</a></li> --}}
+        {{!-- {{/if}} --}}
+        <li><a id='logOutBtn1'>Logout</a></li>
         {{else}}
         <li><a href="/login">Login/Sign Up</a></li>
         {{/if}}
@@ -37,10 +40,10 @@
   <!-- custom SIDE NAV for smaller screens -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/">home</a></li>
-      <li><a href="/dashboard">dashboard</a></li>
+    
   
       {{#if logged_in}}
-      {{!-- <li><a href="/logout">logout</a></li> --}}
+      <li><a href="/dashboard">dashboard</a></li>
       <li><a id='logOutBtn1'>logout</a></li>
       
       {{else}}
