@@ -46,7 +46,8 @@ router.get('/', withAuth, async (req, res) => {
 // Goto Checkout screen
 router.get('/checkout', withAuth, async (req, res) => {
   res.render('checkout', {
-    logged_in: req.session.logged_in
+    logged_in: req.session.logged_in,
+    admin: req.session.admin,
   })
 });
 
@@ -80,6 +81,7 @@ router.get('/orders', withAuth, async (req, res) => {
     res.render('orders', {
       orders,
       logged_in: req.session.logged_in,
+      admin: req.session.admin,
     })
   } catch (err) {
     res.status(400).json(err);
@@ -119,6 +121,7 @@ router.get('/users', withAuth, async (req, res) => {
     res.render('users', {
       users,
       logged_in: req.session.logged_in,
+      admin: req.session.admin
     })
   } catch (err) {
     res.status(400).json(err);
