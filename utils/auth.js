@@ -11,21 +11,27 @@ const {User} = require('../models');
 
 const withAuth = async (req, res, next) => {
     let userData;
-    try {
-        userData = await User.findByPk(req.session.user_id)
-    } catch (err) {
-        res.status(500).json(err)
+    if (req.session.logged_in) {
+        try {
+            userData = await User.findByPk(req.session.user_id)
+        } catch (err) {
+            res.status(500).json(err)
+        }
+        console.log('user; ',userData);
+        let isAdmin = userData.admin;
+        // console.log('isAdmin>>>>', isAdmin);
+        
+        if (userData.admin) {
+            req.session.admin = true
+        } else {
+            req.session.admin = false;
+        } 
+        next();
     }
-    console.log('user; ',userData);
-    let isAdmin = userData.admin;
-    // console.log('isAdmin>>>>', isAdmin);
-    
-    if (userData.admin) {
-        req.session.admin = true
-    } else {
+    else {
         req.session.admin = false;
-    } 
-    next();
+        next();
+    }
 } 
 
 
