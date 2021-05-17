@@ -66,12 +66,12 @@ paypal.Buttons({
 
 
 
-const enableButtons = (event) => {
-  purchaseButtons.classList.remove('disabled')
-}
+// const enableButtons = (event) => {
+//   purchaseButtons.classList.remove('disabled')
+// }
 
 
-document.querySelector('#checkboxTerms').addEventListener('change', enableButtons)
+// document.querySelector('#checkboxTerms').addEventListener('change', enableButtons)
 document
   .querySelector('#checkout')
   .addEventListener('click', getOrder);
