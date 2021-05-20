@@ -17,21 +17,20 @@
       <a href="/" class="responsive-img" style=""><img src="images/Jens Hens Logo 297x139.png" title='Home'
           alt="Jen's Hens" class="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      {{!-- TO-DO CHRIS MAKE WELCOME MESSAGE APPEAR IN CORRECT POSITION       --}}
-      {{!-- {{#if logged_in}}
-      <h5 class="center-align mt">Welcome {{first_name}} {{last_name}}! Thanks for supporting Jen's Hens!</h5>
-      {{/if}} --}}
+
+      {{#if logged_in}}
+        <span class="center brand-logo welcome">Welcome {{first_name}} {{last_name}}! Thanks for supporting Jen's Hens!</span>
+      {{/if}}
 
       <ul class="right hide-on-med-and-down full-nav-links">
         <li><a href="/">Home</a></li>
-
-
         {{#if logged_in}}
         <li><a href="/checkout">Checkout</a></li>
         <li><a href="/myorders">My Orders</a></li>
         {{#if admin}}
         <li><a href="/users">Users</a></li>
         <li><a href="/orders">Orders</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
         {{/if}}
         <li><a id='logOutBtn1'>Logout</a></li>
         {{else}}
@@ -46,6 +45,7 @@
   
       {{#if logged_in}}
       <li><a href="/checkout">Checkout</a></li>
+      <li><a href="/myorders">My Orders</a></li>
       {{#if admin}}
         <li><a href="/users">Users</a></li>
         <li><a href="/orders">Orders</a></li>
@@ -56,8 +56,7 @@
       <li><a href="/login">Login/Sign up</a></li>
       {{/if}}
     </ul>
-  {{!-- <div class="container">      --}}
-  {{!-- </div> --}}
+
   
   {{{body}}}
 

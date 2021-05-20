@@ -7,6 +7,7 @@ const {
   Chicken
 } = require('../../models');
 const withAuth = require('../../utils/auth');
+const loginCheck = require('../../utils/login');
 
 
 
@@ -15,7 +16,9 @@ router.get('/', withAuth, async (req, res) => {
   //TO-DO Redirect if Not Logged in (Chris)
   res.render('homepage', {
     logged_in: req.session.logged_in, 
-    admin: req.session.admin
+    admin: req.session.admin,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
   })
   //     try {
   //     const postsData = await Posts.findAll({
@@ -44,7 +47,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Goto Checkout screen
-router.get('/checkout', withAuth, async (req, res) => {
+router.get('/checkout', loginCheck, withAuth, async (req, res) => {
   res.render('checkout', {
     logged_in: req.session.logged_in,
     admin: req.session.admin,
@@ -55,7 +58,7 @@ router.get('/checkout', withAuth, async (req, res) => {
 //****** */
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->users.handlebars
-router.get('/orders', withAuth, async (req, res) => {
+router.get('/orders', loginCheck, withAuth, async (req, res) => {
   try {
     const ordersData = await Order.findAll({
       include: [{
@@ -92,7 +95,7 @@ router.get('/orders', withAuth, async (req, res) => {
 //****** */
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->orders.handlebars
-router.get('/users', withAuth, async (req, res) => {
+router.get('/users', loginCheck, withAuth, async (req, res) => {
   // console.log('admin??? ',req.session.admin)
   // if (req.session.admin = false) {
   //   return;
@@ -129,7 +132,7 @@ router.get('/users', withAuth, async (req, res) => {
 });
 
 // GET THE ADMIN DASHBOARD *** NEEDS TO BE REVAMPED***
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: {
@@ -157,7 +160,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 // GET ALL MY ORDERS
-router.get('/myorders', async (req, res) => {
+router.get('/myorders', loginCheck, withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: {
@@ -189,7 +192,7 @@ router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/');
-    //   res.render('homepage');
+
     return;
   }
   res.render('login');
@@ -206,14 +209,13 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.get('/placeorder', async (req, res) => {
+router.get('/placeorder', loginCheck, withAuth, async (req, res) => {
   res.render('placeorder');
 });
 
-router.get('/thankyou', async(req,res) => {
+router.get('/thankyou', loginCheck, withAuth, async(req,res) => {
   res.render('thankyou')
 })
-// render logout page
-// router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));
+
 
 module.exports = router;

@@ -1,10 +1,6 @@
-{{#if logged_in}}
-<h5 class="center-align mt">Welcome {{first_name}} {{last_name}}! Thanks for supporting Jen's Hens!</h5>
+{{!-- {{#if logged_in}} --}}
 
-{{#if admin}}
-<h5>This user is an admin</h5>
-
-<h3 class="center-align">All Orders</h3>
+<h5 class="center-align">All Orders</h5>
 
 <!-- Loop over each object in the projects array -->
 <div class="container">
@@ -23,7 +19,6 @@
         {{#each Orders as |order| }}
         <tbody>
             {{#if fulfilled}}
-            {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
             <td><label>
                     <input type="checkbox" checked="checked" disabled="disabled" />
                     <span>5/15/2021</span>
@@ -49,7 +44,7 @@
     </table>
 </div>
 
-<h3 class="center-align">All Users</h3>
+<h5 class="center-align">All Users</h5>
 
 <!-- Loop over each object in the projects array -->
 <div class="container">
@@ -89,13 +84,13 @@
     </table>
 </div>
 
-{{else}}
+{{!-- {{else}}
 <h5 class="center-align">This user is not an admin</h5>
-{{/if}}
+{{/if}} --}}
 
 <div class="orders-container">
 
-    {{#if Orders}}
+    {{!-- {{#if Orders}} --}}
  <div class="container">
 <table>
     <thead>
@@ -109,7 +104,7 @@
             <th>Total Cost</th>
         </tr>
     </thead>
-    {{#each orders as |order| }}
+    {{#each Orders as |order| }}
     <tbody>
         {{#if fulfilled}}
         {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
@@ -120,7 +115,7 @@
         {{else}}
         <td><label>
             <input type="checkbox" />
-            <span>Fulifill Now?</span>
+            <span>Fulfill Now?</span>
         </label></td>
         {{/if}}
         <td>{{format_date createdAt}}</td>        
@@ -130,14 +125,14 @@
         <td>$0.50</td>
         <td>$100.00</td>
     </tbody>
-    {{order_quanity}}
+    {{order_quantity}}
     {{!-- <p>
         Order ID: {{order.id}}
       {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
 {{/each}}
 </table>
 </div>
-    {{else}}
+    {{!-- {{else}}
     <div class="row">
         <div class="col s12 m8 offset-m2 center-align">
             <div class="card blue-grey darken-1">
@@ -146,10 +141,10 @@
             </div>
         </div>
     </div>
-    {{/if}}
+    {{/if}} --}}
 </div>
 
-{{#if request_admin}}
+{{!-- {{#if request_admin}}
 <p class="center-align"> You have already requested admin priveledges! Please wait to be accepted by one of the current administrators. </p>
 {{else}}
 <div class="row">
@@ -159,12 +154,12 @@
     <a id="requestAdminBtn" request-id={{id}} class="waves-effect waves-light btn mt" style="filter: drop-shadow(0 0 0.75rem black);"><i
             class="material-icons left">verified_user</i>Request</a>
 </div>
-{{/if}}
+{{/if}} --}}
 
-{{else}}
+{{!-- {{else}}
 <h6 class="center-align">You must be <a href="/login">logged in</a> to view the dashboard.</h6>
 
-{{/if}}
+{{/if}} --}}
 
 
 <script src="../js/dashboard.js"></script>

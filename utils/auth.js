@@ -17,14 +17,15 @@ const withAuth = async (req, res, next) => {
         } catch (err) {
             res.status(500).json(err)
         }
-        console.log('user; ',userData);
-        let isAdmin = userData.admin;
-        // console.log('isAdmin>>>>', isAdmin);
         
         if (userData.admin) {
-            req.session.admin = true
+            req.session.admin = true;
+            req.session.first_name = userData.first_name;
+            req.session.last_name = userData.last_name
         } else {
             req.session.admin = false;
+            req.session.first_name = userData.first_name;
+            req.session.last_name = userData.last_name
         } 
         next();
     }
