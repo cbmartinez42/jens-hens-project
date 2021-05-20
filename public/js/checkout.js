@@ -1,5 +1,4 @@
-const purchaseButtons = document.getElementById('checkout')
-console.log('Purchase Buttons>>>>>>>>>',purchaseButtons)
+const purchaseButtons = document.getElementById('checkout');
 const orderQtyField = document.getElementById('orderQty');
 console.log('zzz>>>', orderQtyField);
 const subTotalField = document.getElementById('subTotal');
@@ -40,6 +39,7 @@ const getOrder = async (event) => {
   console.log(response);
   if (response.ok) {
     // return response;
+    localStorage.clear();
     document.location.replace(`/thankyou`);
   } else {
     alert(response.statusText);
@@ -68,7 +68,6 @@ paypal.Buttons({
 
 
 const enableButtons = (event) => {
-  console.log('A purchase button was clicked!');
   if(purchaseButtons.classList.contains('disabled')){
     purchaseButtons.classList.remove('disabled');  
   } else {
