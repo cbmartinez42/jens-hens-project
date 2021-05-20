@@ -1,75 +1,64 @@
-<div class="row">
-  <div class="col s5">
-    <h5>Shopping Cart</h5>
-    <a target="_blank" href="../public/images/stock/eggs-1374141_1920.jpg">
-      <img src="./images/stock/eggs-1374141_1920.jpg" class="thumb" alt="Eggs">
-      <table>
-        <thead>
-          <tr>
-            <th>Qty</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
-          </tr>
-        </thead>
+<div class="container">
+  <div class="row">
+    <div class="col s6">
+      <h5>Shopping Cart</h5>
+      <a target="_blank" href="../public/images/stock/eggs-1374141_1920.jpg">
+        <img src="./images/stock/eggs-1374141_1920.jpg" class="thumb" alt="Eggs">
+        <table>
+          <thead>
+            <tr>
+              <th>Qty</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr>
-            <td id="orderQty">xxxx</td>
-            <td>Eggs</td>
-            <td id="unitPrice">$0.50</td>
-          </tr>
-          {{!-- <tr>
-            <td>1</td>
-            <td>Betsy Sponsorship</td>
-            <td>$25.00</td>
-          </tr> --}}
-          <tr>
-            <th>Subtotal</th>
-            <th></th>
-            <th id="subTotal"></th>
-          </tr>
-        </tbody>
-      </table>
-    </a>
+          <tbody>
+            <tr>
+              <td id="orderQty">xxxx</td>
+              <td>Eggs</td>
+              <td id="unitPrice">$0.50</td>
+            </tr>
+            {{!-- <tr>
+              <td>1</td>
+              <td>Betsy Sponsorship</td>
+              <td>$25.00</td>
+            </tr> --}}
+            <tr>
+              <th>Subtotal</th>
+              <th></th>
+              <th id="subTotal"></th>
+            </tr>
+          </tbody>
+        </table>
+      </a>
+    </div>
+    <div class="col s6">
+      <h5>Checkout</h5>
+      <form action="#">
+        <p>
+          <label>
+            <input id="checkboxTerms" type="checkbox" />
+            <span class="black-text">I agree with Terms & Conditions</span>
+          </label>
+        </p>
+      </form>
+
+      <div id="paypal-button-container"></div>
+    </div>
   </div>
-  <div class="col s7">
-    <h5>Checkout</h5>
-    <form action="#">
-      <p>
-        <label>
-          <input id="checkboxTerms" type="checkbox" />
-          <span class="black-text">I agree with Terms & Conditions</span>
-        </label>
-      </p>
-    </form>
-    <a id="checkout" class="waves-effect waves-light btn btn-block purchase-buttons">Checkout</a>
-    {{!-- <a class="waves-effect waves-light btn btn-block">Paypal</a> --}}
-    <div id="paypal-button-container" class="purchase-buttons"></div>
-    <h5>Next Steps</h5>
-    <p class="bold">Pick-up Instructions</p>
-    <p>Tell us when you're coming to pick up your order.</p>
-    <p class="bold">Payment Information</p>
-    <p>Choose a payment method and enter your payment details.</p>
-    <p class="bold">Order Confirmation</p>
-    <p>Place your order and receive confirmation.</p>
-  </div>
-</div>
-{{#if checkOutBtn}}
+{{!-- </div> --}}
+{{!-- {{#if checkOutBtn}} --}}
+<h3 id="nextSteps" class="center-align">Next Steps</h3>
 {{> shippingmethod}}
-{{/if}}
-{{!-- {{> payment}} --}}
-{{!-- {{> confirmation}} --}}
 
-{{!--
-<script src="./public/js/checkout.js"></script> --}}
-<script  src = "https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"></script>
+<div class="col s3 center-align">
+  <a id="checkout" class="waves-effect waves-light btn btn-block disabled">Checkout</a>
+</div>
+
+</div>
+<script
+  src="https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"></script>
 <div id="paypal-button-container"></div>
-
-<script>
-
-
- 
-</script>
-
 
 <script src="./js/checkout.js"></script>
