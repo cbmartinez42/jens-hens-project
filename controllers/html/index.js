@@ -128,7 +128,7 @@ router.get('/users', withAuth, async (req, res) => {
   }
 });
 
-
+// GET THE ADMIN DASHBOARD *** NEEDS TO BE REVAMPED***
 router.get('/dashboard', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -143,8 +143,8 @@ router.get('/dashboard', async (req, res) => {
     const user = userData.get({
       plain: true
     });
-    // console.log(user)
-    // console.log(user.Orders)
+    console.log(user)
+    console.log(user.Orders)
 
     res.render('dashboard', {
       ...user,
@@ -155,6 +155,35 @@ router.get('/dashboard', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// GET ALL MY ORDERS
+router.get('/myorders', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {
+        exclude: ['password']
+      },
+      include: [{
+        model: Order,
+        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at']
+      }],
+    });
+    const user = userData.get({
+      plain: true
+    });
+    console.log(user)
+    console.log(user.Orders)
+
+    res.render('myorders', {
+      ...user,
+      logged_in: true
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route

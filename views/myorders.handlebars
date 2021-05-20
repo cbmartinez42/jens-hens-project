@@ -1,0 +1,50 @@
+{{#if logged_in}}
+<h5 class="center-align mt">Welcome {{first_name}} {{last_name}}! Thanks for supporting Jen's Hens!</h5>
+
+
+<h3 class="center-align">My Orders</h3>
+
+<!-- Loop over each object in the projects array -->
+<div class="container">
+<table>
+    <thead>
+        <tr>
+            <th>Fulfilled?</th>
+            <th>Order Date</th>
+            <th>Order ID</th>
+            <th>Qty Requested</th>
+            <th>Item Price</th>
+            <th>Extended Price</th>
+        </tr>
+    </thead>
+    {{#each Orders as |order| }}
+    <tbody class="orderBody">
+        {{#if fulfilled}}
+        {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
+        <td>
+            {{format_date updated_at}}
+            {{!-- <input type="checkbox" checked="checked" disabled="disabled" />
+            <span>5/15/2021</span> --}}
+        </td>
+        {{else}}
+        <td>
+            Waiting to be laid!
+            {{!-- <input type="checkbox" /> --}}
+            {{!-- <a class="waves-effect waves-light btn"><span data-id={{id}} >Mark as Fulfilled?</span></a> --}}
+        </td>
+        {{/if}}
+        <td>{{format_date created_at}}</td>        
+        <td>{{id}}</td>
+        <td>{{order_quantity}}</td>
+        <td>$0.50</td>
+        <td>$9.00</td>
+    </tbody>
+    {{order_quanity}}
+    {{!-- <p>
+        Order ID: {{order.id}}
+      {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
+{{/each}}
+</table>
+</div>
+{{/if}}
+{{!-- <script src="/js/myorders.js"></script> --}}
