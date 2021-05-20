@@ -13,6 +13,7 @@
     --nav-alt: #D40000;
     --black: #000000;
   }
+  
   nav {
     height: 11.5rem!important;
   }
@@ -22,7 +23,7 @@
   }
 
   .welcome {
-    font-size: 2rem;
+    font-size: 1.5rem!important;
     margin-top: 2.5rem;
   }
 
