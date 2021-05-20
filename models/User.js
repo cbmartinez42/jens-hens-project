@@ -41,6 +41,10 @@ User.init(
                 isEmail: true,
             }
         },
+        phone: {
+            type: DataTypes.STRING(15),
+            allowNull: false,
+        },
         admin: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
