@@ -13,7 +13,6 @@ Order.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-      initialAutoIncrement: 1000,
     },
     customer: {
       type: DataTypes.INTEGER,
@@ -44,6 +43,9 @@ Order.init(
     //   },
     // },
   },
+  // {
+  //   initialAutoIncrement: '1000',
+  // },
   {
     sequelize,
     freezeTableName: true,
