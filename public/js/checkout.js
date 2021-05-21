@@ -1,6 +1,5 @@
 const purchaseButtons = document.getElementById('checkout');
 const orderQtyField = document.getElementById('orderQty');
-console.log('zzz>>>', orderQtyField);
 const subTotalField = document.getElementById('subTotal');
 var unitPrice = .50
 const checkboxTerms = document.getElementById('checkboxTerms');
@@ -17,9 +16,6 @@ function init() {
 init();
 
 
-
-// var checkOutBtn = false;
-// console.log(checkOutBtn);
 
 const getOrder = async (event) => {
   event.preventDefault();

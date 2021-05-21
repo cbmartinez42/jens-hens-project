@@ -16,43 +16,25 @@ const requestAdmin = async (e) => {
     location.reload();
 }
 
+const orderUpdate = async (event) => {
+    event.preventDefault();
+    console.log('orderBody was clicked!');
+    console.log('the event is as folows:',event);
+    const id = event.target.getAttribute('data-id');
+    console.log('and the id is ',id);
 
+    const response = await fetch(`/api/order/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ 
+            fulfilled: true,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+        });
+    location.reload();
 
-// const postHandler = (event) => {
+}
 
-//     if (event.target.hasAttribute('data-delete-id')) {
-//         deletePost(event);
-//     } else if (event.target.hasAttribute('data-edit-id')) {
-//         editPost(event);
-//     }
-// };
-
-// const deletePost = async (event) => {
-//     const id = event.target.getAttribute('data-delete-id');
-
-//     let confirmation = confirm('This will delete the post, and cannot be undone. Would you like to continue?');
-
-//     if (confirmation === true) {
-//         const response = await fetch(`/api/posts/${id}`, {
-//             method: 'DELETE',
-//         });
-
-//         if (response.ok) {
-//             document.location.reload();
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// };
-
-// const editPost = async (event) => {
-//     const id = event.target.getAttribute('data-edit-id');
-//     window.location.replace(`/edit-post/${id}`)
-// }
-
-// document.querySelector('.orders-container').addEventListener('click', postHandler)
-
-
+document.querySelector('.orderBody').addEventListener("click", orderUpdate)
 
 
 const adminUpdate = async (event) => {
