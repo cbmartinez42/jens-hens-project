@@ -16,7 +16,7 @@
                 <th>Extended Price</th>
             </tr>
         </thead>
-        {{#each Orders as |order| }}
+        {{#each orders as |order| }}
         <tbody>
             {{#if fulfilled}}
             <td><label>
@@ -29,7 +29,7 @@
                     <span>Fulifill Now?</span>
                 </label></td>
             {{/if}}
-            <td>{{created_at}}</td>
+            <td>{{createdAt}}</td>
             <td>{{id}}</td>
             <td>{{User.full_name}}</td>
             <td>{{order_quantity}}</td>
@@ -84,54 +84,7 @@
     </table>
 </div>
 
-{{!-- {{else}}
-<h5 class="center-align">This user is not an admin</h5>
-{{/if}} --}}
-
-<div class="orders-container">
-
-    {{!-- {{#if Orders}} --}}
- <div class="container">
-<table>
-    <thead>
-        <tr>
-            <th>Fulfilled?</th>
-            <th>Order Date</th>
-            <th>Order ID</th>
-            <th>Customer Name</th>
-            <th>Qty Requested</th>
-            <th>Item Price</th>
-            <th>Total Cost</th>
-        </tr>
-    </thead>
-    {{#each Orders as |order| }}
-    <tbody>
-        {{#if fulfilled}}
-        {{!-- <td><i class="small material-icons">insert_chart</i></td> --}}
-        <td><label>
-            <input type="checkbox" checked="checked" disabled="disabled" />
-            <span>5/15/2021</span>
-        </label></td>
-        {{else}}
-        <td><label>
-            <input type="checkbox" />
-            <span>Fulfill Now?</span>
-        </label></td>
-        {{/if}}
-        <td>{{format_date createdAt}}</td>        
-        <td>{{id}}</td>
-        <td>{{User.full_name}}</td>
-        <td>{{order_quantity}}</td>
-        <td>$0.50</td>
-        <td>$100.00</td>
-    </tbody>
-    {{order_quantity}}
-    {{!-- <p>
-        Order ID: {{order.id}}
-      {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
-{{/each}}
-</table>
-</div>
+{{!-- </div> --}}
     {{!-- {{else}}
     <div class="row">
         <div class="col s12 m8 offset-m2 center-align">
@@ -142,7 +95,7 @@
         </div>
     </div>
     {{/if}} --}}
-</div>
+{{!-- </div> --}}
 
 {{!-- {{#if request_admin}}
 <p class="center-align"> You have already requested admin priveledges! Please wait to be accepted by one of the current administrators. </p>

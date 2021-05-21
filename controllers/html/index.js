@@ -136,30 +136,45 @@ router.get('/users', loginCheck, withAuth, async (req, res) => {
 // GET THE ADMIN DASHBOARD *** NEEDS TO BE REVAMPED***
 router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    const usersData = await User.findAll({
+      // order: [['createdAt', 'DESC']],
       attributes: {
         exclude: ['password']
       },
       include: [{
         model: Order,
-        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at']
+        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at']
       }],
-    });
-    const user = userData.get({
+      // order: [
+      //   ['createdAt', 'DESC']
+      // ]
+    })
+    // Serialize data so the template can read it
+    const users = usersData.map((user) => user.get({
       plain: true
-    });
-    console.log(user)
-    console.log(user.Orders)
+    }));
+    console.log('USERS>>>>>>>>', users);
 
+    if (!usersData) {
+      res.status(400).json({
+        message: 'No user data found!'
+      })
+    }
+    // res.status(200).json(ordersData);
     res.render('dashboard', {
-      ...user,
-      logged_in: true
-    });
+      ...users,
+      logged_in: req.session.logged_in,
+      admin: req.session.admin,
+      orders,
+      });
+    }
+    catch (err) {
+      res.status(400).json(err);
+      }
+    }
+);
 
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// });
 
 // GET ALL MY ORDERS
 router.get('/myorders', loginCheck, withAuth, async (req, res) => {
