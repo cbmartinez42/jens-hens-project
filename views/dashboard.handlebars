@@ -16,7 +16,7 @@
                 <th>Extended Price</th>
             </tr>
         </thead>
-        {{#each orders as |order| }}
+        {{#each Orders as |order| }}
         <tbody>
             {{#if fulfilled}}
             <td><label>
@@ -26,17 +26,17 @@
             {{else}}
             <td><label>
                     <input type="checkbox" />
-                    <span>Fulifill Now?</span>
+                    <span>Fulfill Now?</span>
                 </label></td>
             {{/if}}
-            <td>{{createdAt}}</td>
-            <td>{{id}}</td>
+            <td>{{created_at}}</td>
+            <td>{{order.id}}</td>
             <td>{{User.full_name}}</td>
-            <td>{{order_quantity}}</td>
+            <td>{{order.order_quantity}}</td>
             <td>$0.50</td>
             <td>$100.00</td>
         </tbody>
-        {{order_quanity}}
+        {{order_quantity}}
         {{!-- <p>
             Order ID: {{order.id}}
             {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}

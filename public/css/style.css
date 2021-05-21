@@ -136,3 +136,27 @@ img {
     color: var(--secondary);
     border-bottom-style: solid;
   }
+
+  /* Media Queries for responsiveness */
+@media only screen and (max-width: 992px) {
+  .logo {
+    height: 5rem;
+    margin-top: 2rem;
+    left: 80%!important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+
+@media only screen and (max-width: 576px) {
+
+
+}
+
+@media only screen and (max-width: 500px) {
+
+
+}

@@ -20,30 +20,7 @@ router.get('/', withAuth, async (req, res) => {
     first_name: req.session.first_name,
     last_name: req.session.last_name
   })
-  //     try {
-  //     const postsData = await Posts.findAll({
-  //       // limit: 20, not needed since this is such a small site
-  //       order: [['updated_at', 'DESC']],
-  //       include: [
-  //         {
-  //           model: Users, 
-  //           attributes: ['username']
-  //         },
 
-  //       ]
-  //     });
-
-  //     const posts = postsData.map((posts) =>
-  //     posts.get({plain:true})
-
-  //     );
-  //     res.render('home', {posts, 
-  //         // logged_in: req.session.logged_in 
-  //     });
-  //   } catch (err) {
-  //     res.status(500).json(err)
-  //   }
-  // console.log()
 });
 
 // Goto Checkout screen
@@ -98,10 +75,7 @@ router.get('/orders', loginCheck, withAuth, async (req, res) => {
 //^^This has been moved to the DASHBOARD Page
 //So we can remove the entire views->orders.handlebars
 router.get('/users', loginCheck, withAuth, async (req, res) => {
-  // console.log('admin??? ',req.session.admin)
-  // if (req.session.admin = false) {
-  //   return;
-  // }
+
   try {
     const usersData = await User.findAll({
       attributes: {
@@ -115,7 +89,6 @@ router.get('/users', loginCheck, withAuth, async (req, res) => {
     const users = usersData.map((user) => user.get({
       plain: true
     }));
-    // console.log('USERS>>>>>>>>', users);
 
     if (!usersData) {
       res.status(400).json({
@@ -155,21 +128,23 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
     }));
     console.log('USERS>>>>>>>>', users);
 
-    if (!usersData) {
+    if (!users) {
       res.status(400).json({
         message: 'No user data found!'
       })
     }
     // res.status(200).json(ordersData);
     res.render('dashboard', {
-      ...users,
+      users,
       logged_in: req.session.logged_in,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name,
       admin: req.session.admin,
-      orders,
+      // orders,
       });
     }
     catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
       }
     }
 );
@@ -227,11 +202,21 @@ router.post('/logout', (req, res) => {
 });
 
 router.get('/placeorder', loginCheck, withAuth, async (req, res) => {
-  res.render('placeorder');
+  res.render('placeorder', {
+    logged_in: req.session.logged_in,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name,
+    admin: req.session.admin,
+  });
 });
 
 router.get('/thankyou', loginCheck, withAuth, async(req,res) => {
-  res.render('thankyou')
+  res.render('thankyou', {
+    logged_in: req.session.logged_in,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name,
+    admin: req.session.admin,
+  })
 })
 
 
