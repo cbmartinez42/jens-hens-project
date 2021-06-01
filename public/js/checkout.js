@@ -1,6 +1,5 @@
 const purchaseButtons = document.getElementById('checkout');
 const orderQtyField = document.getElementById('orderQty');
-console.log('zzz>>>', orderQtyField);
 const subTotalField = document.getElementById('subTotal');
 var unitPrice = .50
 const checkboxTerms = document.getElementById('checkboxTerms');
@@ -8,7 +7,6 @@ let subTotal = 0;
 
 function init() {
   var qty = JSON.parse(localStorage.getItem("orderQty"));
-  console.log('qty>>>', qty);
   subTotal = qty * unitPrice;
   orderQtyField.innerHTML = qty;
   subTotalField.innerHTML = "$"+subTotal.toFixed(2);
@@ -16,10 +14,6 @@ function init() {
 
 init();
 
-
-
-// var checkOutBtn = false;
-// console.log(checkOutBtn);
 
 const getOrder = async (event) => {
   event.preventDefault();
