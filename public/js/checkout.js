@@ -7,14 +7,12 @@ let subTotal = 0;
 
 function init() {
   var qty = JSON.parse(localStorage.getItem("orderQty"));
-  console.log('qty>>>', qty);
   subTotal = qty * unitPrice;
   orderQtyField.innerHTML = qty;
   subTotalField.innerHTML = "$"+subTotal.toFixed(2);
 };
 
 init();
-
 
 
 const getOrder = async (event) => {
