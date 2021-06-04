@@ -126,7 +126,11 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
     const users = usersData.map((user) => user.get({
       plain: true
     }));
-    console.log('USERS>>>>>>>>', users);
+    // console.log('USERS>>>>>>>>', users);
+
+    const orders = users.reduce((total, item) => total.concat(item.Orders.map(o => ({...o, first_name: item.first_name, last_name: item.last_name})) ), [])
+
+    
 
     if (!users) {
       res.status(400).json({
@@ -136,6 +140,7 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
     // res.status(200).json(ordersData);
     res.render('dashboard', {
       users,
+      Orders: orders,
       logged_in: req.session.logged_in,
       first_name: req.session.first_name,
       last_name: req.session.last_name,
