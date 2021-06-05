@@ -38,7 +38,9 @@
     grid-gap: 15px;
   }
 
-
+.hide {
+  display: none;
+}
   .main-carousel .carousel-item {
   max-width: 50%;
   height: auto;

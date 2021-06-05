@@ -1,4 +1,5 @@
 const purchaseButtons = document.getElementById('checkout');
+const hiddenButton = document.querySelector('.hidden-button')
 const orderQtyField = document.getElementById('orderQty');
 const subTotalField = document.getElementById('subTotal');
 var unitPrice = .50
@@ -19,8 +20,6 @@ const getOrder = async (event) => {
   event.preventDefault();
   let qty = parseInt(JSON.parse(localStorage.getItem("orderQty")));
   
-  console.log(checkboxTerms)
-  console.log(qty)
   if(checkboxTerms.value){
 
   const id = localStorage.getItem("orderQuantity")
@@ -54,6 +53,7 @@ paypal.Buttons({
   onApprove: function (data, actions) {
     return actions.order.capture().then(function (details) {
       alert('Transaction completed by ' + details.payer.name.given_name);
+
     });
   }
 }).render('#paypal-button-container'); // Display payment options on your web page
@@ -64,8 +64,18 @@ paypal.Buttons({
 const enableButtons = (event) => {
   if(purchaseButtons.classList.contains('disabled')){
     purchaseButtons.classList.remove('disabled');  
+    paypalEnable()
   } else {
     purchaseButtons.classList.add('disabled');
+    paypalEnable()
+  }
+}
+
+const paypalEnable = () => {
+  if(hiddenButton.classList.contains('hide')) {
+    hiddenButton.classList.remove('hide')
+  } else {
+    hiddenButton.classList.add('hide')
   }
 }
 
