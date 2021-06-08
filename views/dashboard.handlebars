@@ -3,7 +3,7 @@
 <h5 class="center-align">All Orders</h5>
 
 <!-- Loop over each object in the projects array -->
-<div class="container">
+<div class="container orderBody">
     <table>
         <thead>
             <tr>
@@ -26,12 +26,12 @@
             {{else}}
             <td><label>
                     <input type="checkbox" />
-                    <span>Fulfill Now?</span>
+                    <span data-id="{{id}}">Fulfill Now?</span>
                 </label></td>
             {{/if}}
             <td>{{created_at}}</td>
             <td>{{order.id}}</td>
-            <td>{{User.full_name}}</td>
+            <td>{{first_name}} {{last_name}}</td>
             <td>{{order.order_quantity}}</td>
             <td>$0.50</td>
             <td>$100.00</td>

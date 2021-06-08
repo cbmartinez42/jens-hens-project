@@ -14,6 +14,7 @@ function init() {
 };
 
 
+
 const getOrder = async (event) => {
   event.preventDefault();
   let qty = parseInt(JSON.parse(localStorage.getItem("orderQty")));
@@ -83,4 +84,4 @@ document
   .querySelector('#checkout')
   .addEventListener('click', getOrder);
 
-  init();
+init();
