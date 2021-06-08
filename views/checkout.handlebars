@@ -15,7 +15,7 @@
 
           <tbody>
             <tr>
-              <td id="orderQty">xxxx</td>
+              <td id="orderQty"></td>
               <td>Eggs</td>
               <td id="unitPrice">$0.50</td>
             </tr>
@@ -34,23 +34,31 @@
       </a>
     </div>
     <div class="col s6">
+      <div class="checkout">
+      {{> shippingmethod}}
+      <div class="checkout">
       <h5>Checkout</h5>
+              
       <form action="#">
+
         <p>
           <label>
             <input id="checkboxTerms" type="checkbox" />
-            <span class="black-text">I agree with Terms & Conditions</span>
+            <span class="black-text">I agree with Terms & Conditions (required)</span>
           </label>
         </p>
+        <p>View the terms <a href="/terms">here</a></p>
       </form>
-    <div class="hidden-button hide">
-      <div id="paypal-button-container"></div>
+      </div>
+      <div class="hidden-button hide">
+        <div id="paypal-button-container"></div>
+      </div>
     </div>
-    </div>
+  </div>
   </div>
 
 <h3 id="nextSteps" class="center-align">Next Steps</h3>
-{{> shippingmethod}}
+{{!-- {{> shippingmethod}} --}}
 
 <div class="col s3 center-align">
   <a id="checkout" class="waves-effect waves-light btn btn-block disabled">Checkout</a>
