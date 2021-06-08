@@ -8,15 +8,10 @@ let subTotal = 0;
 
 function init() {
   var qty = JSON.parse(localStorage.getItem("orderQty"));
-  console.log('qty>>>', qty);
   subTotal = qty * unitPrice;
   orderQtyField.innerHTML = qty;
   subTotalField.innerHTML = "$"+subTotal.toFixed(2);
 };
-
-init();
-
-
 
 
 const getOrder = async (event) => {
@@ -32,7 +27,6 @@ const getOrder = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  console.log(response);
   if (response.ok) {
     // return response;
     localStorage.clear();
@@ -56,8 +50,9 @@ paypal.Buttons({
   onApprove: function (data, actions) {
     return actions.order.capture().then(function (details) {
       alert('Transaction completed by ' + details.payer.name.given_name);
-
+      
     });
+    
   }
 }).render('#paypal-button-container'); // Display payment options on your web page
 //   document.querySelector('#checkOutBtn').addEventListener('click', getOrder);
@@ -87,3 +82,5 @@ document.querySelector('#checkboxTerms').addEventListener('change', enableButton
 document
   .querySelector('#checkout')
   .addEventListener('click', getOrder);
+
+  init();

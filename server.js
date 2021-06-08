@@ -14,7 +14,9 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Infinite Monkey Theorem',
-  cookie: {},
+  cookie: {
+    sameSite: false
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

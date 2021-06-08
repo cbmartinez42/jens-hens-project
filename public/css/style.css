@@ -139,6 +139,10 @@ img {
     border-bottom-style: solid;
   }
 
+  .checkout {
+    padding-left: 2rem!important;
+  }
+
   /* Media Queries for responsiveness */
 @media only screen and (max-width: 992px) {
   .logo {

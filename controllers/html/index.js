@@ -219,5 +219,11 @@ router.get('/thankyou', loginCheck, withAuth, async(req,res) => {
   })
 })
 
+router.get('/terms', loginCheck, withAuth, (req, res) => res.render('termsofservice', {
+  logged_in: req.session.logged_in,
+  first_name: req.session.first_name,
+  last_name: req.session.last_name,
+  admin: req.session.admin,
+}))
 
 module.exports = router;
