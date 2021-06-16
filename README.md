@@ -100,4 +100,4 @@ You can also fork the repository, make some changes yourself and then create a p
 * Github: [Mark Artim](https://github.com/mark-artim)  
 * Email: [mark.artim@gmail.com](mailto:Mark.Artim@gmail.com)
 * Github: [Jay Yousef](https://github.com/jayyousef)  
-* Email: [jay.youesf@gmail.com](mailto:jay.youesf@gmail.com])
+* Email: [jay.yousef@gmail.com](mailto:jay.yousef@gmail.com)
