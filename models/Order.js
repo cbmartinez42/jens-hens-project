@@ -29,7 +29,11 @@ Order.init(
     fulfilled: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    }
+    },
+    spec_inst: {
+      type: DataTypes.TEXT,
+      defaultValue: false
+    },
     // inventory: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
