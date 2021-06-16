@@ -58,9 +58,10 @@
                 <th>email</th>
             </tr>
         </thead>
-        <div class="userBody">
+        <div >
+            <tbody class="userBody">
             {{#each users as |user| }}
-            <tbody>
+            <tr>
                 <td>{{admin}}</td>
                 <td>{{request_admin}}</td>
                 {{#unless request_admin}}
@@ -75,11 +76,12 @@
                 {{/unless}}
                 <td>{{full_name}}</td>
                 <td>{{email}}</td>
-            </tbody>
+            </tr>
             {{!-- <p>
                 Order ID: {{order.id}}
                 {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
                 {{/each}}
+            </tbody>
         </div>
     </table>
 </div>

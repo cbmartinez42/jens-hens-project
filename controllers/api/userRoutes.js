@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
             phone: req.body.phone,
             email: req.body.email,
             password: req.body.password,
+            admin: req.body.admin,
             request_admin: req.body.request_admin,
         });
         req.session.save(() => {
@@ -102,6 +103,8 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => { //withAuth, 
     // const id = req.params.id
+    console.log('this sucks', req.params.id)
+
     try {
         const userData = await User.update({
             admin: req.body.admin,
