@@ -31,7 +31,7 @@ Order.init(
         defaultValue: false
     },
     spec_inst: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       defaultValue: false
     },
     // inventory: {
