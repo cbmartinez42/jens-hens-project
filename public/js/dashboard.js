@@ -3,6 +3,7 @@ const adminBtn = document.querySelector('#requestAdminBtn')
 
 const requestAdmin = async (e) => {
     e.preventDefault();
+
     const id=e.target.getAttribute()
     const response = await fetch(`/api/user/${id}`, {
         method: 'PUT',
@@ -39,18 +40,20 @@ document.querySelector('.orderBody').addEventListener("click", orderUpdate)
 
 const adminUpdate = async (event) => {
     const id = event.target.getAttribute('data-id');
-
+    console.log('approve admin clicked')
     const response = await fetch(`/api/user/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            request_admin: false,
             admin: true,
+            request_admin: false,
         }),
         headers: {
             'Content-Type': 'application/json'
         },
     });
-
+    if (response.ok) {
+        location.reload()
+    }
 }
 
 
