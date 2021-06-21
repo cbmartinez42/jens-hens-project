@@ -18,16 +18,17 @@ function init() {
 const getOrder = async (event) => {
   event.preventDefault();
   let qty = parseInt(JSON.parse(localStorage.getItem("orderQty")));
+  const special_instructions = document.querySelector("#special_instructions").value
   
   if(checkboxTerms.value){
 
   const id = localStorage.getItem("orderQuantity")
   const response = await fetch(`/api/order/`, {
     method: 'POST',
-    body: JSON.stringify({qty}),
+    body: JSON.stringify({qty, special_instructions}),
     headers: { 'Content-Type': 'application/json' },
   });
-
+console.log('response: ',response);
   if (response.ok) {
     // return response;
     localStorage.clear();

@@ -88,8 +88,9 @@ router.get('/myorders', async (req, res) => {
   router.post('/', async(req,res) => {
     console.log(req.body)
     const order_quantity = req.body.qty;
+    const special_instructions = req.body.special_instructions;
     const customer = req.session.user_id;
-    const orderData = await Order.create({order_quantity:order_quantity, customer:customer});
+    const orderData = await Order.create({order_quantity:order_quantity, customer:customer, spec_inst: special_instructions});
     if(orderData){
       res.status(200).json(orderData)
     }
