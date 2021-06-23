@@ -1,11 +1,10 @@
 const fetch = require("node-fetch");
 
-const mailHandler = (orderData, email) => {
+const mailHandler = (orderData, userData) => {
   
-    console.log('handler fired', orderData)
-    console.log('handler fired email ', email)
     const total = orderData.order_quantity * .50
-    console.log('total',  total)
+    const name = userData.first_name + " " + userData.last_name;
+
   
     let msg = {
       "from": {
@@ -15,23 +14,24 @@ const mailHandler = (orderData, email) => {
         {
           "to": [
             {
-              "email": email
+              "email": userData.email
             }
           ],
           "dynamic_template_data": {
             "total": "$" + total + ".00",
+            "quantity": orderData.order_quantity,
             "items": [
               {
                 "text": "Farm Fresh Eggs!"
               }
             ],
-            "receipt": true
+            "receipt": true,
+            "name": name
           }
         }
       ],
       "template_id": process.env.SG_TEMPLATE
     };
-    console.log('MSG IS', JSON.stringify(msg));
     fetch("https://api.sendgrid.com/v3/mail/send", {
       headers: {
         Authorization: `Bearer ${process.env.SG_KEY}`,
