@@ -2,42 +2,56 @@ const router = require('express').Router();
 const { Order, User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 const fetch = require("node-fetch");
+const mailHandler = require('../../utils/mailer');
 // mail handler
 
-const mailHandler = (orderData, email) => {
+// const mailHandler = (orderData, email) => {
   
-  console.log('handler fired', orderData)
-  console.log('handler fired email ', email)
-  const total = orderData.order_quantity * .50
-  console.log('total',  total)
-  const fetchRequest = (("https://api.sendgrid.com/v3/mail/send", {
-    body: `{\n   'from':{\n      'email':'jenns.hens.eggs@gmail.com'\n   },\n   'personalizations':[\n      {\n         'to':[\n            {\n               'email': ${email}\n            }\n         ],\n         'dynamic_template_data':{\n            'total':'$' + ${total},\n            'items':[\n               {\n                  'text':'Farm Fresh Eggs',\n               },\n\n            ],\n            'receipt':true,\n          }\n      }\n   ],\n   'template_id':'${process.env.SG_TEMPLATE}'\n}`,
-    headers: {
-      "Authorization": `Bearer ${process.env.SG_KEY}`,
-      "Content-Type": "application/json"
-    },
-    method: "POST"
-  }))
+//   console.log('handler fired', orderData)
+//   console.log('handler fired email ', email)
+//   const total = orderData.order_quantity * .50
+//   console.log('total',  total)
 
-  console.log('fetch request ... ', fetchRequest)
-  
-  fetch("https://api.sendgrid.com/v3/mail/send", {
-    body: `{\n   'from':{\n      'email':'jenns.hens.eggs@gmail.com'\n   },\n   'personalizations':[\n      {\n         'to':[\n            {\n               'email': ${email}\n            }\n         ],\n         'dynamic_template_data':{\n            'total':'$' + ${total},\n            'items':[\n               {\n                  'text':'Farm Fresh Eggs',\n               },\n\n            ],\n            'receipt':true,\n          }\n      }\n   ],\n   'template_id':'${process.env.SG_TEMPLATE}'\n}`,
-    headers: {
-      "Authorization": `Bearer ${process.env.SG_KEY}`,
-      "Content-Type": "application/json"
-    },
-    method: "POST"
-  })
-    .then (function (response) {
-      console.log('handler end >> ', response)
-    }
+//   let msg = {
+//     "from": {
+//       "email": "jenns.hens.eggs@gmail.com"
+//     },
+//     "personalizations": [
+//       {
+//         "to": [
+//           {
+//             "email": email
+//           }
+//         ],
+//         "dynamic_template_data": {
+//           "total": "$" + total + ".00",
+//           "items": [
+//             {
+//               "text": "Farm Fresh Eggs!"
+//             }
+//           ],
+//           "receipt": true
+//         }
+//       }
+//     ],
+//     "template_id": process.env.SG_TEMPLATE
+//   };
+//   console.log('MSG IS', JSON.stringify(msg));
+//   fetch("https://api.sendgrid.com/v3/mail/send", {
+//     headers: {
+//       Authorization: `Bearer ${process.env.SG_KEY}`,
+//       "Content-Type": "application/json"
+//     },
+//     method: "POST",
+//     body: JSON.stringify(msg)
+//   })
+//     .then(res => res.text())
+//     .then(text => console.log('>>>>>> ', text))
+//     .catch(function (error) {
+//       console.log(error)
+//     })
 
-    )
-    .catch(function (error) {
-      console.log(error)
-    })
-  }
+//   }
 
 //GET ALL ORDERS
 router.get('/', async (req, res) => {
@@ -132,8 +146,6 @@ router.get('/myorders', async (req, res) => {
       }
     })
     const email = userData.email
-    // console.log("email >>>>", email)
-    // console.log("customer  >>", customer)
     const orderData = await Order.create({order_quantity:order_quantity, customer:customer, spec_inst: special_instructions});
     
     if(orderData){
