@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jenn's Hens</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Alata&family=Krona+One&family=Righteous&family=Zen+Dots&display=swap"
-    rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -23,17 +22,15 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
       {{#if logged_in}}
-        <span class="center brand-logo welcome">Welcome {{first_name}} {{last_name}}!</span>
+        <span class="center brand-logo welcome fredoka">Welcome {{first_name}} {{last_name}}!</span>
       {{/if}}
 
-      <ul class="right hide-on-med-and-down full-nav-links">
+      <ul class="right hide-on-med-and-down full-nav-links fredoka">
         <li><a href="/">Home</a></li>
         {{#if logged_in}}
         <li><a href="/checkout">Checkout</a></li>
         <li><a href="/myorders">My Orders</a></li>
         {{#if admin}}
-        {{!-- <li><a href="/users">Users</a></li>
-        <li><a href="/orders">Orders</a></li> --}}
         <li><a href="/dashboard">Dashboard</a></li>
         {{/if}}
         <li><a id='logOutBtn1'>Logout</a></li>
@@ -43,18 +40,16 @@
       </ul>
   </nav>
   <!-- custom SIDE NAV for smaller screens -->
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="/">home</a></li>
+    <ul class="sidenav fredoka" id="mobile-demo">
+      <li><a href="/">Home</a></li>
     
   
       {{#if logged_in}}
       <li><a href="/checkout">Checkout</a></li>
       <li><a href="/myorders">My Orders</a></li>
       {{#if admin}}
-        {{!-- <li><a href="/users">Users</a></li>
-        <li><a href="/orders">Orders</a></li> --}}
         <li><a href="/dashboard">Dashboard</a></li>
-        {{/if}}
+      {{/if}}
       <li><a id='logOutBtn1'>Logout</a></li>
       
       {{else}}
@@ -70,17 +65,16 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Thank You</h5>
+          <h5 class="white-text fredoka">Thank You</h5>
           <p class="grey-text text-lighten-4">Thank you for taking the time to visit our page. I hope you join our journey and choose to sponsor one of our chickens or if you're local, consider ordering some eggs! I hope our journeys cross again soon!<br/><br/>
             Sincerely,<br/> Jenn @ Jenn's Hens
           </p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
+          <h5 class="white-text fredoka">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
             <li><a class="grey-text text-lighten-3" href="/terms">Terms of Service</a></li>
-            {{!-- <li><a class="grey-text text-lighten-3" href="/dashboard">dashboard</a></li> --}}
             {{#if logged_in}}
             <li><a class="grey-text text-lighten-3" href="/logout">Logout</a></li>
             {{else}}

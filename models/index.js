@@ -24,11 +24,6 @@ Chicken.hasMany(Sponsor, {
     onDelete: 'CASCADE',
 })
 
-// Product.belongsToMany(User, { // not sure about belongstomany
-//     foreignKey: 'allocated_to',
-//     through: 'Order' // not sure about this
-// })
-
 
 module.exports = {
     Chicken,

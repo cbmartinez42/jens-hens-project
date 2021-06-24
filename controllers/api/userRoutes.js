@@ -4,7 +4,6 @@ const User = require('../../models/User');
 
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body);
         const userData = await User.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -22,7 +21,6 @@ router.post('/', async (req, res) => {
             res.status(200).json(userData);
         });
     } catch (err) {
-        console.log(err)
         res.status(400).json({
             message: "Don't panic. But one of those was wrong. Please try again",
             err
@@ -93,7 +91,6 @@ router.get('/:id', async (req, res) => {
         }
     }
     catch (err) {
-        console.log(err)
         res.status(400).json({
             message: "Don't panic. But one of those was wrong. Please try again",
             err
@@ -102,8 +99,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => { //withAuth, 
-    // const id = req.params.id
-    console.log('this sucks', req.params.id)
 
     try {
         const userData = await User.update({

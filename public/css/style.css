@@ -14,16 +14,26 @@
     --black: #000000;
   }
   
+  body {
+    font-family: 'Cabin', sans-serif;
+    font-weight: lighter;
+  }
+
+  .fredoka {
+    font-family: 'Fredoka One', cursive;
+  }
+
   nav {
     height: 11.5rem!important;
   }
 
   nav ul a {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    padding-top: 2.25rem;
   }
 
   .welcome {
-    font-size: 1.5rem!important;
+    font-size: 1.75rem!important;
     margin-top: 2.5rem;
   }
 
@@ -92,6 +102,18 @@
     flex-shrink: 0;
   }
 
+  .page-footer, .page-footer .row  {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .footer-copyright p {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  
+
   div {
     flex: 1 0 auto;
   }
@@ -103,7 +125,6 @@ img {
 }
 
   nav {
-    /* display: block!important; */
     background-color: var(--primary);
     height: 10rem;
     align-items: center;
@@ -141,6 +162,14 @@ img {
 
   .checkout {
     padding-left: 2rem!important;
+  }
+
+  .chicken-thankyou {
+    max-height: 13rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 
   /* Media Queries for responsiveness */

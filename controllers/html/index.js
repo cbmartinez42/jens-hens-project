@@ -8,12 +8,12 @@ const {
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 const loginCheck = require('../../utils/login');
+const {format_date} = require('../../utils/helpers')
 
 
 
 
 router.get('/', withAuth, async (req, res) => {
-  //TO-DO Redirect if Not Logged in (Chris)
   res.render('homepage', {
     logged_in: req.session.logged_in, 
     admin: req.session.admin,
@@ -33,84 +33,10 @@ router.get('/checkout', loginCheck, withAuth, async (req, res) => {
   })
 });
 
-//Goto All Orders Screen TODO ADMIN ONLY
-//****** */
-//^^This has been moved to the DASHBOARD Page
-//So we can remove the entire views->users.handlebars
-router.get('/orders', loginCheck, withAuth, async (req, res) => {
-  try {
-    const ordersData = await Order.findAll({
-      include: [{
-        model: User,
-        attributes: ['first_name', 'last_name', 'full_name'],
-      }, ],
-      order: [
-        ['createdAt', 'DESC'],
-      ],
-    })
-    // Serialize data so the template can read it
-    const orders = ordersData.map((order) => order.get({
-      plain: true
-    }));
-
-
-    if (!ordersData) {
-      res.status(400).json({
-        message: 'No order data found!'
-      })
-    }
-    // res.status(200).json(ordersData);
-    res.render('orders', {
-      orders,
-      logged_in: req.session.logged_in,
-      admin: req.session.admin,
-    })
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-// Goto Users Screen TODO ADMIN ONLY
-//****** */
-//^^This has been moved to the DASHBOARD Page
-//So we can remove the entire views->orders.handlebars
-router.get('/users', loginCheck, withAuth, async (req, res) => {
-
-  try {
-    const usersData = await User.findAll({
-      attributes: {
-        exclude: ['password']
-      },
-      order: [
-        ['createdAt', 'DESC']
-      ]
-    })
-    // Serialize data so the template can read it
-    const users = usersData.map((user) => user.get({
-      plain: true
-    }));
-
-    if (!usersData) {
-      res.status(400).json({
-        message: 'No user data found!'
-      })
-    }
-    // res.status(200).json(ordersData);
-    res.render('users', {
-      users,
-      logged_in: req.session.logged_in,
-      admin: req.session.admin
-    })
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 // GET THE ADMIN DASHBOARD *** NEEDS TO BE REVAMPED***
 router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
   try {
     const usersData = await User.findAll({
-      // order: [['createdAt', 'DESC']],
       attributes: {
         exclude: ['password']
       },
@@ -118,26 +44,19 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
         model: Order,
         attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at']
       }],
-      // order: [
-      //   ['createdAt', 'DESC']
-      // ]
     })
     // Serialize data so the template can read it
     const users = usersData.map((user) => user.get({
       plain: true
     }));
-    // console.log('USERS>>>>>>>>', users);
 
     const orders = users.reduce((total, item) => total.concat(item.Orders.map(o => ({...o, first_name: item.first_name, last_name: item.last_name})) ), [])
-
-    
 
     if (!users) {
       res.status(400).json({
         message: 'No user data found!'
       })
     }
-    // res.status(200).json(ordersData);
     res.render('dashboard', {
       users,
       Orders: orders,
@@ -145,7 +64,6 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
       first_name: req.session.first_name,
       last_name: req.session.last_name,
       admin: req.session.admin,
-      // orders,
       });
     }
     catch (err) {
@@ -171,8 +89,6 @@ router.get('/myorders', loginCheck, withAuth, async (req, res) => {
     const user = userData.get({
       plain: true
     });
-    console.log(user)
-    console.log(user.Orders)
 
     res.render('myorders', {
       ...user,
