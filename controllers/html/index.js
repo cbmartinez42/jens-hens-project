@@ -42,7 +42,7 @@ router.get('/dashboard', loginCheck, withAuth, async (req, res) => {
       },
       include: [{
         model: Order,
-        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at']
+        attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at', 'spec_inst']
       }],
     })
     // Serialize data so the template can read it
