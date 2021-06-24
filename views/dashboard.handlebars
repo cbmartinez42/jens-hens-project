@@ -1,6 +1,5 @@
-{{!-- {{#if logged_in}} --}}
 
-<h5 class="center-align">All Orders</h5>
+<h5 class="center-align fredoka">All Orders</h5>
 
 <!-- Loop over each object in the projects array -->
 <div class="container orderBody">
@@ -29,22 +28,19 @@
                     <span data-id="{{id}}">Fulfill Now?</span>
                 </label></td>
             {{/if}}
-            <td>{{created_at}}</td>
+            <td>{{ format_date created_at}}</td>
             <td>{{order.id}}</td>
             <td>{{first_name}} {{last_name}}</td>
             <td>{{order.order_quantity}}</td>
             <td>$0.50</td>
             <td>$100.00</td>
         </tbody>
-        {{order_quantity}}
-        {{!-- <p>
-            Order ID: {{order.id}}
-            {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
+
             {{/each}}
     </table>
 </div>
 
-<h5 class="center-align">All Users</h5>
+<h5 class="center-align fredoka">All Users</h5>
 
 <!-- Loop over each object in the projects array -->
 <div class="container">
@@ -71,50 +67,19 @@
                         <input type="checkbox" />
                         <a data-id="{{id}}" class="waves-effect waves-light btn"><span>Grant Admin
                                 Priveledges?</span></a>
-                        {{!-- <a data-id="{{id}}" class="waves-effect waves-light btn">Grant Admin Priveledges?</a> --}}
                     </label></td>
                 {{/unless}}
                 <td>{{full_name}}</td>
                 <td>{{email}}</td>
             </tr>
-            {{!-- <p>
-                Order ID: {{order.id}}
-                {{ <a class="text-decoration-none" href="/post/{{post.id}}">{{post.title}}</a> --}}
+
                 {{/each}}
             </tbody>
         </div>
     </table>
 </div>
 
-{{!-- </div> --}}
-    {{!-- {{else}}
-    <div class="row">
-        <div class="col s12 m8 offset-m2 center-align">
-            <div class="card blue-grey darken-1">
-                This user has no orders!
-                To get started, go to the<a href="/home">homepage</a> and click the Buy Now button!
-            </div>
-        </div>
-    </div>
-    {{/if}} --}}
-{{!-- </div> --}}
 
-{{!-- {{#if request_admin}}
-<p class="center-align"> You have already requested admin priveledges! Please wait to be accepted by one of the current administrators. </p>
-{{else}}
-<div class="row">
-    <div class="">
-        <p class="center-align">Would you like to request admin access?</p>
-    </div class="container valign-wrapper center-align">
-    <a id="requestAdminBtn" request-id={{id}} class="waves-effect waves-light btn mt" style="filter: drop-shadow(0 0 0.75rem black);"><i
-            class="material-icons left">verified_user</i>Request</a>
-</div>
-{{/if}} --}}
-
-{{!-- {{else}}
-<h6 class="center-align">You must be <a href="/login">logged in</a> to view the dashboard.</h6>
-
-{{/if}} --}}
 
 
 <script src="../js/dashboard.js"></script>

@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
+const favicon = require('serve-favicon');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,7 +26,7 @@ const sess = {
 };
 
 app.use(session(sess));
-
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

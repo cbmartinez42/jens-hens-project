@@ -95,6 +95,7 @@ router.get('/myorders', async (req, res) => {
     const orderData = await Order.create({order_quantity:order_quantity, customer:customer, spec_inst: special_instructions});
     
     if(orderData){
+      // fire email api call from utils
       mailHandler(orderData, userData)
       res.status(200).json(orderData)
 

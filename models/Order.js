@@ -47,9 +47,6 @@ Order.init(
     //   },
     // },
   },
-  // {
-  //   initialAutoIncrement: '1000',
-  // },
   {
     sequelize,
     freezeTableName: true,
