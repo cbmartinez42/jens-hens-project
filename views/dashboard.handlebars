@@ -13,6 +13,7 @@
                 <th>Qty Requested</th>
                 <th>Item Price</th>
                 <th>Extended Price</th>
+                <th>Special Instructions</th>
             </tr>
         </thead>
         {{#each Orders as |order| }}
@@ -34,6 +35,7 @@
             <td>{{order.order_quantity}}</td>
             <td>$0.50</td>
             <td>$100.00</td>
+            <td>{{order.spec_inst}}</td>
         </tbody>
 
             {{/each}}
