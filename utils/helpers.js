@@ -11,7 +11,10 @@ module.exports = {
   // handlebars log
   logger: (something) => {
     console.log(something)
-  }
+  }, 
 
+  multiply: (a, b) => {
+  return (a * b)
+  }
 
 };

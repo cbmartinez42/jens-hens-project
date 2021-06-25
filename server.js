@@ -4,6 +4,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const favicon = require('serve-favicon');
+// var hhelpers = require('handlebars-helpers');
+// var math = hhelpers.math();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
