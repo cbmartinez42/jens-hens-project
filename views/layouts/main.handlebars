@@ -21,9 +21,7 @@
           alt="Jenn's Hens" class="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-      {{#if logged_in}}
-        <span class="center brand-logo welcome fredoka">Welcome {{first_name}} {{last_name}}!</span>
-      {{/if}}
+
 
       <ul class="right hide-on-med-and-down full-nav-links fredoka">
         <li><a href="/">Home</a></li>
@@ -56,7 +54,9 @@
       <li><a href="/login">Login/Sign up</a></li>
       {{/if}}
     </ul>
-
+      {{#if logged_in}}
+        <span class="center brand-logo welcome fredoka">Welcome {{first_name}} {{last_name}}!</span>
+      {{/if}}
   
   {{{body}}}
 
@@ -64,13 +64,13 @@
   <footer class="nav-color page-footer">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
+        <div class="col l6 s12 center-align">
           <h5 class="white-text fredoka">Thank You</h5>
           <p class="grey-text text-lighten-4">Thank you for taking the time to visit our page. I hope you join our journey and choose to sponsor one of our chickens or if you're local, consider ordering some eggs! I hope our journeys cross again soon!<br/><br/>
             Sincerely,<br/> Jenn @ Jenn's Hens
           </p>
         </div>
-        <div class="col l4 offset-l2 s12">
+        <div class="col l4 center-align offset-l2 s12">
           <h5 class="white-text fredoka">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>

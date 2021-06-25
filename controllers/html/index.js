@@ -86,10 +86,11 @@ router.get('/myorders', loginCheck, withAuth, async (req, res) => {
         attributes: ['id', 'customer', 'order_quantity', 'fulfilled', 'created_at', 'updated_at']
       }],
     });
+
     const user = userData.get({
       plain: true
     });
-
+    
     res.render('myorders', {
       ...user,
       logged_in: true
