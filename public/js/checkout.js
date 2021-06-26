@@ -1,4 +1,3 @@
-const purchaseButtons = document.getElementById('checkout');
 const hiddenButton = document.querySelector('.hidden-button')
 const orderQtyField = document.getElementById('orderQty');
 const subTotalField = document.getElementById('subTotal');
@@ -16,7 +15,6 @@ function init() {
 
 
 const getOrder = async (event) => {
-  event.preventDefault();
   let qty = parseInt(JSON.parse(localStorage.getItem("orderQty")));
   const special_instructions = document.querySelector("#special_instructions").value
   
@@ -50,14 +48,15 @@ paypal.Buttons({
     });
   },
   onApprove: function (data, actions) {
-    return actions.order.capture().then(function (details) {
-      alert('Transaction completed by ' + details.payer.name.given_name);
-      
+    return actions.order.capture().then(async function (details) {
+      await getOrder();
+      alert('Transaction completed by ' + details.payer.name.given_name);  
+      document.location.replace('/thankyou')
     });
     
   }
 }).render('#paypal-button-container'); // Display payment options on your web page
-//   document.querySelector('#checkOutBtn').addEventListener('click', getOrder);
+
 
 
 
@@ -79,10 +78,7 @@ const paypalEnable = () => {
   }
 }
 
-document.querySelector('#checkboxTerms').addEventListener('change', enableButtons)
+document.querySelector('#checkboxTerms').addEventListener('change', paypalEnable)
 
-document
-  .querySelector('#checkout')
-  .addEventListener('click', getOrder);
 
 init();
