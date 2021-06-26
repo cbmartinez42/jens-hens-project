@@ -61,6 +61,7 @@
 
   .sponsor-container {
     padding-top: 3rem;
+    display: block;
   }
   
   .hide {

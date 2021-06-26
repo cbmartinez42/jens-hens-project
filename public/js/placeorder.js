@@ -5,7 +5,6 @@
     var elems = document.querySelectorAll('select');
     // console.log('elems: ',elems);
     var instances = M.FormSelect.init(elems, {});
-    console.log('instances:',instances);
   });
 
 
@@ -21,7 +20,6 @@ document.querySelector('#checkOutBtn').addEventListener('click', getOrder);
 
 
 function saveLocalStorage (qtySelected) {
-    console.log('qtyselectsave',qtySelected)
     localStorage.setItem('orderQty', qtySelected);
     document.location.replace('/checkout');
 };

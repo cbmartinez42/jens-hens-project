@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col s6">
+    <div class="col s12 l6">
       <h5 class="fredoka">Shopping Cart</h5>
       <a target="_blank" href="../public/images/stock/eggs-1374141_1920.jpg">
         <img src="./images/stock/eggs-1374141_1920.jpg" class="thumb" alt="Eggs">
@@ -28,11 +28,11 @@
         </table>
       </a>
     </div>
-    <div class="col s6">
+    <div class="col s12 l6">
       <div class="checkout">
       {{> shippingmethod}}
       <div class="checkout">
-      <h5 class="fredoka">Checkout</h5>
+      <h5 class="fredoka">Checkout (required to continue)</h5>
               
       <form action="#">
 
@@ -45,22 +45,24 @@
         <p>View the terms <a href="/terms">here</a></p>
       </form>
       </div>
-      <div class="hidden-button hide">
-        <div id="paypal-button-container"></div>
-      </div>
+  
+        
+        
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 center-align hidden-button hide">
+      <div id="paypal-button-container"></div>
     </div>
   </div>
   </div>
 
-<h3 id="nextSteps" class="center-align fredoka">Next Steps</h3>
-
-<div class="col s3 center-align">
-  <a id="checkout" class="waves-effect waves-light btn btn-block disabled">Checkout</a>
-</div>
 
 </div>
 <script
-  src="https://www.paypal.com/sdk/js?client-id=AcPPX8hMk7vVrosiMpNF7Iwf7hekF3mc7HuVPW53ktcJkYhemk_8z7xP-y3jJR6GGvzW9IxCTmgAzx-u"></script>
+  src="https://www.paypal.com/sdk/js?client-id=AeiJar5WoEZt8uMEkOR8JX-q7NoZA8fGNh1ay8zE1OMAGCpr8IW0Cd11OBBSaH3MMaGdDrOKD2J41VlL"></script>
 <div id="paypal-button-container"></div>
 
 <script src="./js/checkout.js"></script>
