@@ -47,15 +47,14 @@ As a user, I can also swipe through the chicken images and pick the chicken I wa
 * Utilizes Node.js with the Sequelize module to allow for functionality 
     * Sequelize uses model associations to manage relationships between models
     * Route management functionality assisted by Sequelize as well
-    * HTML, CSS & JavaScript
-    * Handlebars Template Engine
-    * Materialize Framework
-    * MySql database
-    * Creative Google-fu
     * Express JS/Express Session
-    * Paypal Payment Structure
-    * Instagram API Gallery
-
+* Paypal Payment Structure
+* Instagram API Gallery
+* Materialize Framework
+* MySql database
+* HTML, CSS & JavaScript
+* Handlebars Template Engine
+* Full HTML email confirmations via Twilio Sendgrid
 
 
 

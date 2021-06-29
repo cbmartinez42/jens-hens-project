@@ -4,8 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const favicon = require('serve-favicon');
-// var hhelpers = require('handlebars-helpers');
-// var math = hhelpers.math();
+const compression = require("compression");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Infinite Monkey Theorem',
   cookie: {
-    sameSite: false
+    sameSite: 'none'
   },
   resave: false,
   saveUninitialized: true,
@@ -27,6 +26,7 @@ const sess = {
   })
 };
 
+app.use(compression());
 app.use(session(sess));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.engine('handlebars', hbs.engine);

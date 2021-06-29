@@ -88,23 +88,21 @@
     background-color: rgb(202, 202, 202);
   }
 
-.mt {
-  margin-top: 2rem;
-}
+  .mt {
+    margin-top: 2rem;
+  }
 
-.mb {
-  margin-bottom: 2rem;
-}
+  .mb {
+    margin-bottom: 2rem;
+  }
 
-.mt2 {
-  margin-top: 4rem;
-}
+  .mt2 {
+    margin-top: 4rem;
+  }
 
-.mb2 {
-  margin-bottom: 4rem;
-}
-
-
+  .mb2 {
+    margin-bottom: 4rem;
+  }
 
   footer {
     flex-shrink: 0;
@@ -120,9 +118,10 @@
     margin: 0px;
   }
 
-  /* .video-container {
-    margin-top: none;
-  } */
+  .footer-links {
+    padding: .5rem;
+    font-size: 18px;
+  }
 
   div {
     flex: 1 0 auto;
