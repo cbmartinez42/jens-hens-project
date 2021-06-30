@@ -3,9 +3,9 @@
     "name": "Jenn's Hens",
     "icons": [
       {
-        "src": "/images/favicon.ico",
-        "sizes": "192x192",
-        "type": "image/png"
+        "src": "/images/jens-hens-logo-297x139.png'",
+        "sizes": "297x139"
+
       }
     ],
     "start_url": "/",
