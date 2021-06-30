@@ -1,0 +1,15 @@
+{
+    "short_name": "Jenn's Hens",
+    "name": "Jenn's Hens",
+    "icons": [
+      {
+        "src": "/images/favicon.ico",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#808080",
+    "display": "standalone",
+    "theme_color": "#808080"
+  }
